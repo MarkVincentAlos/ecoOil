@@ -3,7 +3,7 @@
     <string name="quote">Your bank, your pocket, whenever you roam EcoBank haves your back</string>
     <string name="deposit">DEPOSIT</string>
     <string name="transfer">TRANSFER</string>
-    <string name="deposit_balance">Your Balance:</string>
+    <string name="deposit_balance">Balance</string>
     <string name="card_number">card number</string>
     <string name="d_amount">amount</string>
     <string name="d_message">message(optional)</string>
@@ -12,5 +12,8 @@
     <string name="sign_in">SIGN IN</string>
     <string name="password">PASSWORD</string>
     <string name="remember">Remember me?</string>
+    <string name="biller">Biller</string>
+    <string name="credit">•••• •••• •••• ••••</string>
+    <string name="c_name">ABCDEFG H. IJKL</string>
 
 </resources>
