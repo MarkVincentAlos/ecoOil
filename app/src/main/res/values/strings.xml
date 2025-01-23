@@ -15,5 +15,24 @@
     <string name="biller">Biller</string>
     <string name="credit">•••• •••• •••• ••••</string>
     <string name="c_name">ABCDEFG H. IJKL</string>
+    <string name="amount_balance">4000.00</string>
+    <string name="loan">Loans</string>
+    <string name="l_amount">Desired loan amount:</string>
+    <string name="l_income">Annual income:</string>
+    <string name="l_contacts">CONTACT INFORMATION</string>
+    <string name="l_first">First name</string>
+    <string name="l_last">Last name</string>
+    <string name="l_birth">birthdate: MM/DD/YY</string>
+    <string name="l_marital">Marital status</string>
+    <string name="l_phone">Phone: 09XX - XXXX - YYYY</string>
+    <string name="l_address">ADDRESS</string>
+    <string name="l_street">Street address</string>
+    <string name="l_city">city</string>
+    <string name="l_state">State/Province</string>
+    <string name="l_postal">Postal/Zipcode</string>
+    <string name="l_gross">Gross monthly income</string>
+    <string name="l_rent">Monthly rent/mortgage</string>
+    <string name="l_down">Down payment amount</string>
+    <string name="consent">CONSENT</string>
 
 </resources>
