@@ -19,5 +19,9 @@ class onboard : AppCompatActivity() {
             val intent = Intent(this, deposit::class.java)
             startActivity(intent)
         }
+        binding.s1.setOnClickListener(){
+            val intent = Intent(this, deposit::class.java)
+            startActivity(intent)
+        }
     }
 }
