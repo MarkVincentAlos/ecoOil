@@ -20,7 +20,7 @@ class onboard : AppCompatActivity() {
             startActivity(intent)
         }
         binding.s1.setOnClickListener(){
-            val intent = Intent(this, deposit::class.java)
+            val intent = Intent(this, home::class.java)
             startActivity(intent)
         }
     }

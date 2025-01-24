@@ -71,9 +71,9 @@
         android:id="@+id/s1"
         android:layout_width="95dp"
         android:layout_height="33dp"
+        android:layout_margin="20dp"
         android:background="@color/trans"
         android:text="SKIP"
-        android:layout_margin="10dp"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

@@ -7,12 +7,83 @@
     android:layout_height="match_parent"
     tools:context=".home">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="380dp"
+        android:layout_height="178dp"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="19dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="50dp">
+
+        <TextView
+            android:id="@+id/l_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:fontFamily="@font/abeezee"
+            android:text="@string/deposit_balance"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="43dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="43dp"
+            app:srcCompat="@drawable/sim" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="95dp"
+            android:text="@string/credit"
+            android:textSize="40dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="120dp"
+            app:srcCompat="@drawable/visa" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="140dp"
+            android:fontFamily="@font/abeezee"
+            android:text="@string/c_name" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/abeezee"
+            android:inputType="text"
+            android:text="@string/amount_balance"
+            android:textSize="25sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
     <com.nafis.bottomnavigation.NafisBottomNavigation
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mbn_circleColor="#3F51B5"
-        app:mbn_backgroundBottomColor="#4E2794"
+        app:mbn_circleColor="#673AB7"
+        app:mbn_backgroundBottomColor="#2A4D2B"
         app:mbn_countBackgroundColor="#ff6f00"
         app:mbn_countTextColor="#ffffff"
         app:mbn_countTypeface="fonts/SourceSansPro-Regular.ttf"
@@ -24,7 +95,45 @@
         android:layout_alignParentBottom="true"
         />
 
+    <ImageView
+        android:id="@+id/h_logo"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-1dp"
+        app:srcCompat="@drawable/topdesign" />
 
+    <ImageView
+        android:id="@+id/h_top"
+        android:layout_width="362dp"
+        android:layout_height="89dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-2dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/l_recent"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="323dp"
+        android:fontFamily="@font/abeezee"
+        android:text="@string/l_recent"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="325dp"
+        android:layout_marginEnd="15dp"
+        app:srcCompat="@drawable/time" />
 
 
 </RelativeLayout>
