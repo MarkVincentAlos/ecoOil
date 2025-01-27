@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            android:background="@drawable/topdesign">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/abeezee"
+                android:textSize="40dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:paddingTop="20dp"
+                android:text="@string/p_profile"/>
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="137dp"
+            android:layout_height="145dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/userfill" />
+
+        <TextView
+            android:id="@+id/p_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingTop="15dp"
+            android:fontFamily="@font/abeezee"
+            android:text="@string/p_name" />
+
+        <TextView
+            android:id="@+id/p_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="30dp"
+            android:paddingStart="20dp"
+            android:textSize="20sp"
+            android:text="@string/p_number" />
+
+        <TextView
+            android:id="@+id/p_number2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="10dp"
+            android:paddingStart="50dp"
+            android:textSize="20sp"
+            android:text="@string/p_number2" />
+
+        <TextView
+            android:id="@+id/p_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="30dp"
+            android:paddingStart="20dp"
+            android:textSize="20sp"
+            android:text="@string/p_email" />
+
+        <TextView
+            android:id="@+id/p_email2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="10dp"
+            android:paddingStart="50dp"
+            android:textSize="20sp"
+            android:text="@string/p_email2" />
+
+        <TextView
+            android:id="@+id/p_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="30dp"
+            android:paddingStart="20dp"
+            android:textSize="20sp"
+            android:text="@string/p_mobile" />
+
+        <TextView
+            android:id="@+id/p_mobile2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="10dp"
+            android:paddingStart="50dp"
+            android:textSize="20sp"
+            android:text="@string/p_mobile2" />
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
