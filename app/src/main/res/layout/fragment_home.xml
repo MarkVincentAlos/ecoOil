@@ -7,12 +7,6 @@
     android:orientation="vertical"
     tools:context=".Home">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:src="@drawable/logo"
-        android:background="@drawable/topdesign"/>
-
     <androidx.cardview.widget.CardView
         android:layout_width="380dp"
         android:layout_height="178dp"
@@ -56,14 +50,6 @@
             android:layout_marginTop="95dp"
             android:text="@string/credit"
             android:textSize="40dp" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="83dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="120dp"
-            app:srcCompat="@drawable/visa" />
 
         <TextView
             android:id="@+id/textView2"

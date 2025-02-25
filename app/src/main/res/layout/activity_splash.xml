@@ -15,7 +15,7 @@
         android:layout_width="275dp"
         android:layout_height="127dp"
         android:layout_margin="70dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/ecooil" />
 
     <TextView
         android:id="@+id/Quote"

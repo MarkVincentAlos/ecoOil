@@ -14,8 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:orientation="horizontal"
-            android:background="@drawable/topdesign">
+            android:orientation="horizontal">
 
 
             <TextView
@@ -24,7 +23,7 @@
                 android:fontFamily="@font/abeezee"
                 android:textSize="40dp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:paddingTop="20dp"
                 android:text="@string/p_profile"/>
 

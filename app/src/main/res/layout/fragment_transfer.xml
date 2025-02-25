@@ -12,7 +12,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@drawable/topdesign"
         android:orientation="horizontal">
 
         <ImageView
@@ -32,7 +31,7 @@
             android:fontFamily="@font/abeezee"
             android:paddingLeft="75dp"
             android:text="@string/transfer"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="35sp" />
 
 
@@ -81,13 +80,7 @@
             android:text="@string/credit"
             android:textSize="40dp" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_marginTop="120dp"
-            android:layout_marginLeft="290dp"
-            android:layout_width="83dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/visa" />
+
 
         <TextView
             android:id="@+id/textView2"

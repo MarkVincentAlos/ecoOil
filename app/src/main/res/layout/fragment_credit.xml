@@ -13,25 +13,6 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal"
-            android:background="@drawable/topdesign">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/abeezee"
-                android:textSize="40dp"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:paddingTop="20dp"
-                android:text="@string/c_credit"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
