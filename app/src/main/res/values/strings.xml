@@ -15,7 +15,7 @@
     <string name="biller">Biller</string>
     <string name="credit">•••• •••• •••• ••••</string>
     <string name="c_name">ABCDEFG H. IJKL</string>
-    <string name="amount_balance">4000.00</string>
+    <string name="amount_balance">4000.00pts</string>
     <string name="loan">Loans</string>
     <string name="l_amount">Desired loan amount:</string>
     <string name="l_amount2">PHP</string>
@@ -53,8 +53,9 @@
     <string name="p_email2">abcdefgh@gmail.com</string>
     <string name="p_mobile">Phone number</string>
     <string name="p_mobile2">09XX - XXXX - YYYY</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="settings">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="c_credit">Tracker</string>
     <string name="c_recent">Recent transactions</string>
+    <string name="stations">Nearest Stations</string>
 </resources>

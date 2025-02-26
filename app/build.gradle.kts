@@ -50,4 +50,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation (libs.nafisbottomnav)
+    implementation(libs.play.services.maps.v1810)
+    implementation(libs.play.services.maps)
 }

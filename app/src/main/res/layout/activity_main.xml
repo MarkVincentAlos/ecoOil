@@ -9,9 +9,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="80dp"
         android:src="@drawable/ecooil"
-        android:background="@drawable/topdesign"/>
+        android:background="#002d72"/>
 
 
     <FrameLayout
@@ -24,14 +24,14 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mbn_circleColor="@color/purple2"
-        app:mbn_backgroundBottomColor="@color/green"
+        app:mbn_circleColor="#022561"
+        app:mbn_backgroundBottomColor="#002d72"
         app:mbn_countBackgroundColor="#ff6f00"
         app:mbn_countTextColor="#ffffff"
         app:mbn_countTypeface="fonts/SourceSansPro-Regular.ttf"
         app:mbn_defaultIconColor="@color/white"
         app:mbn_rippleColor="#3F51B4"
-        app:mbn_selectedIconColor="@color/white"
+        app:mbn_selectedIconColor="@color/nicergreen"
         app:mbn_shadowColor="#1f212121"
         app:mbn_hasAnimation="true"
         android:layout_alignParentBottom="true" />

@@ -16,9 +16,9 @@ class MainActivity: AppCompatActivity() {
 
         val bottomNavigation = findViewById<NafisBottomNavigation>(R.id.bottomNavigation)
         bottomNavigation.add(NafisBottomNavigation.Model(1, R.drawable.home))
-        bottomNavigation.add(NafisBottomNavigation.Model(2, R.drawable.credit_card))
-        bottomNavigation.add(NafisBottomNavigation.Model(3, R.drawable.profile))
-        bottomNavigation.add(NafisBottomNavigation.Model(4, R.drawable.settings))
+        bottomNavigation.add(NafisBottomNavigation.Model(2, R.drawable.station))
+        bottomNavigation.add(NafisBottomNavigation.Model(3, R.drawable.reward))
+        bottomNavigation.add(NafisBottomNavigation.Model(4, R.drawable.settings2))
 
         bottomNavigation.setOnShowListener {
             when (it.id) {
@@ -28,17 +28,17 @@ class MainActivity: AppCompatActivity() {
                 }
                 2 ->{
 
-                    replaceFragment(Credit())
+                    replaceFragment(Stations())
 
                 }
                 3 ->{
 
-                    replaceFragment(Profile())
+                    replaceFragment(Rewards())
 
                 }
                 4 ->{
 
-                    replaceFragment(Settings())
+                    replaceFragment(More())
 
                 }
             }
