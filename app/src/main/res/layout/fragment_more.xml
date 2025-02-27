@@ -91,37 +91,39 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardElevation="3dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="10dp"
-            android:layout_margin="10dp">
+            app:cardElevation="3dp">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <ImageButton
                     android:id="@+id/terms"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:background="@color/transparent"
                     android:padding="30dp"
-                    android:src="@drawable/terms"
                     android:scaleType="fitCenter"
-                    android:background="@color/transparent"/>
+                    android:src="@drawable/terms" />
 
                 <TextView
                     android:id="@+id/terms2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:focusable="true"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/abeezee"
                     android:clickable="true"
-                    android:text="terms and agreement" />
+                    android:focusable="true"
+                    android:fontFamily="@font/abeezee"
+                    android:text="terms and agreement"
+                    android:textAlignment="center" />
 
 
             </LinearLayout>
@@ -130,32 +132,34 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardElevation="3dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="10dp"
-            android:layout_margin="10dp">
+            app:cardElevation="3dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <ImageButton
                     android:id="@+id/settings"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:background="@color/transparent"
                     android:padding="30dp"
-                    android:src="@drawable/settings2"
                     android:scaleType="fitCenter"
-                    android:background="@color/transparent"/>
+                    android:src="@drawable/settings2" />
 
                 <TextView
                     android:id="@+id/settings2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:focusable="true"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/abeezee"
                     android:clickable="true"
-                    android:text="Settings" />
+                    android:focusable="true"
+                    android:fontFamily="@font/abeezee"
+                    android:text="Settings"
+                    android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

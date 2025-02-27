@@ -58,4 +58,6 @@
     <string name="c_credit">Tracker</string>
     <string name="c_recent">Recent transactions</string>
     <string name="stations">Nearest Stations</string>
+    <string name="forgot">forgot password?</string>
+    <string name="register">register</string>
 </resources>
