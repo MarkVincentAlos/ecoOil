@@ -84,25 +84,28 @@
 
                 <TextView
                     android:id="@+id/forgot"
-                    android:layout_width="101dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@color/transparent"
                     android:text="@string/forgot"
                     android:textAlignment="textStart"
                     android:clickable="true"
                     android:textColor="@color/black"
                     android:textSize="10sp" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
                 <TextView
                     android:id="@+id/Register"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
                     android:background="@color/transparent"
+                    android:clickable="true"
                     android:text="@string/register"
                     android:textColor="@color/black"
-                    android:textAlignment="textEnd"
-                    android:clickable="true"
-                    android:layout_weight="1"
                     android:textSize="10sp" />
             </LinearLayout>
 
