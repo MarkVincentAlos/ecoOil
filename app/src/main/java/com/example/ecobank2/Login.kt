@@ -41,5 +41,13 @@ class Login : AppCompatActivity() {
                 binding.Pass2.error = "Invalid Password"
             }
         }
+        binding.Register.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+        }
+        binding.forgot.setOnClickListener{
+            val intent = Intent(this, Forgot::class.java)
+            startActivity(intent)
+        }
     }
 }

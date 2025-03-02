@@ -59,5 +59,9 @@
     <string name="c_recent">Recent transactions</string>
     <string name="stations">Nearest Stations</string>
     <string name="forgot">forgot password?</string>
+    <string name="OTP">GET OTP</string>
+    <string name="OTP2">OTP</string>
+    <string name="email">Email</string>
+    <string name="reset">reset password</string>
     <string name="register">register</string>
 </resources>
