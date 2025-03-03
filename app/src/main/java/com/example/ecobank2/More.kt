@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.ecobank2.databinding.FragmentMoreBinding
 
 class More : Fragment() {
@@ -19,8 +20,13 @@ class More : Fragment() {
     ): View {
         _binding = FragmentMoreBinding.inflate(inflater, container, false)
         binding.profile.setOnClickListener(){
-            val intent = Intent(requireContext(), Profile::class.java)
-            startActivity(intent)
+            val Profile = Profile()
+
+            val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+
+            transaction.replace(R.id.fragment_container, Profile)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
         return binding.root
     }
