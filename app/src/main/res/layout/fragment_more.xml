@@ -108,25 +108,23 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/terms"
+                    android:id="@+id/transactions"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@color/transparent"
                     android:padding="30dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/terms" />
+                    android:src="@drawable/transactions" />
 
                 <TextView
-                    android:id="@+id/terms2"
+                    android:id="@+id/transactions2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/abeezee"
-                    android:text="terms and agreement"
+                    android:text="Transactions"
                     android:textAlignment="center" />
-
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -182,27 +180,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
                 <ImageButton
-                    android:id="@+id/transactions"
+                    android:id="@+id/about"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@color/transparent"
                     android:padding="30dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/transactions" />
+                    android:src="@drawable/about" />
 
                 <TextView
-                    android:id="@+id/transactions2"
+                    android:id="@+id/about2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/abeezee"
-                    android:text="Transactions"
+                    android:text="About Us"
                     android:textAlignment="center" />
-
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

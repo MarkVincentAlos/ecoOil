@@ -1,6 +1,5 @@
 package com.example.ecobank2
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,18 +18,21 @@ class More : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMoreBinding.inflate(inflater, container, false)
-        binding.profile.setOnClickListener(){
-            val Profile = Profile()
 
-            val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+        binding.profile.setOnClickListener { navigateToFragment(Profile()) }
+        binding.transactions.setOnClickListener { navigateToFragment(Transactions()) }
+        binding.help.setOnClickListener { navigateToFragment(Help()) }
+        binding.about.setOnClickListener {navigateToFragment(About())}
 
-            transaction.replace(R.id.fragment_container, Profile)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
         return binding.root
     }
 
+    private fun navigateToFragment(fragment: Fragment) {
+        val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
