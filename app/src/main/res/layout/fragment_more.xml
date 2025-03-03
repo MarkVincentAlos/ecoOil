@@ -184,6 +184,43 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/transactions"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/transparent"
+                    android:padding="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/transactions" />
+
+                <TextView
+                    android:id="@+id/transactions2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/abeezee"
+                    android:text="Transactions"
+                    android:textAlignment="center" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageButton
                     android:id="@+id/settings"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
@@ -206,10 +243,7 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+
     </LinearLayout>
 
 
