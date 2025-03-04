@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578938992426",
+    "project_id": "ecooil-5e8f0",
+    "storage_bucket": "ecooil-5e8f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578938992426:android:e83d5dfc3674390c32d053",
+        "android_client_info": {
+          "package_name": "com.example.ecobank2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3wFfoINEQWX2th1bTqcLm_mIIMnH79Us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
