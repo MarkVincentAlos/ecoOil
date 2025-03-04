@@ -21,7 +21,7 @@ class Login : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        binding.Sign.setOnClickListener {
+        binding.Login.setOnClickListener {
             val email = binding.number2.text.toString().trim()
             val password = binding.Pass2.text.toString().trim()
 
@@ -46,7 +46,7 @@ class Login : AppCompatActivity() {
                 }
         }
 
-        binding.Register.setOnClickListener {
+        binding.Create.setOnClickListener {
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
