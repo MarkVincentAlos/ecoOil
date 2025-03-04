@@ -64,4 +64,7 @@
     <string name="email">Email</string>
     <string name="reset">reset password</string>
     <string name="register">register</string>
+    <string name="h_address"><strong>Address:</strong>\n XFHJ+4P3, Urdaneta Junction - Dagupan Rd, Santa Barbara, Pangasinan</string>
+    <string name="h_phone"><strong>Phone:</strong>\n 09493473888</string>
+    <string name="h_email"><strong>Email:</strong>\n marketing@ecology.com.ph</string>
 </resources>

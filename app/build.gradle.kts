@@ -52,4 +52,5 @@ dependencies {
     implementation (libs.nafisbottomnav)
     implementation(libs.play.services.maps.v1810)
     implementation(libs.play.services.maps)
+    implementation("com.google.android.material:material:1.12.0")
 }

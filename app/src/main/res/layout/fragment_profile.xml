@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abeezee"
+                android:fontFamily="@font/akshar_medium"
                 android:textSize="40dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -47,29 +47,23 @@
 
             <TextView
                 android:id="@+id/p_name"
-                android:layout_width="374dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/abeezee"
+                android:fontFamily="@font/akshar_medium"
+                android:drawableEnd="@drawable/edit"
                 android:paddingTop="15dp"
                 android:text="@string/p_name"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="37dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:background="@color/transparent"
-                android:src="@drawable/edit" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/p_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
+            android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="30dp"
             android:paddingStart="20dp"
             android:textSize="20sp"
@@ -89,7 +83,7 @@
             android:id="@+id/p_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
+            android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="30dp"
             android:paddingStart="20dp"
             android:textSize="20sp"
@@ -99,7 +93,7 @@
             android:id="@+id/p_email2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
+            android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="10dp"
             android:paddingStart="50dp"
             android:textSize="20sp"
@@ -109,17 +103,17 @@
             android:id="@+id/p_mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/akshar_medium"
             android:paddingStart="20dp"
-            android:textSize="20sp"
-            android:text="@string/p_mobile" />
+            android:text="@string/p_mobile"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/p_mobile2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
+            android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="10dp"
             android:paddingStart="50dp"
             android:textSize="20sp"

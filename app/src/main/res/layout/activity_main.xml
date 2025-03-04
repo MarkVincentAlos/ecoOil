@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,33 +9,34 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:background="#002d72"
         android:src="@drawable/ecooil"
-        android:background="#002d72"/>
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_marginTop="75dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"/>
 
-    <com.nafis.bottomnavigation.NafisBottomNavigation
-        android:id="@+id/bottomNavigation"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mbn_circleColor="#022561"
-        app:mbn_backgroundBottomColor="#002d72"
-        app:mbn_countBackgroundColor="#ff6f00"
-        app:mbn_countTextColor="#ffffff"
-        app:mbn_countTypeface="fonts/SourceSansPro-Regular.ttf"
-        app:mbn_defaultIconColor="@color/white"
-        app:mbn_rippleColor="#3F51B4"
-        app:mbn_selectedIconColor="@color/nicergreen"
-        app:mbn_shadowColor="#1f212121"
-        app:mbn_hasAnimation="true"
-        android:layout_alignParentBottom="true" />
+        android:background="#002D71"
+        app:itemTextColor="@color/white"
+        app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_nav" />
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

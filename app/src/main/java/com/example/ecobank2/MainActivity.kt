@@ -1,61 +1,52 @@
 package com.example.ecobank2
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.nafis.bottomnavigation.NafisBottomNavigation
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity: AppCompatActivity() {
-
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val bottomNavigation = findViewById<NafisBottomNavigation>(R.id.bottomNavigation)
-        bottomNavigation.add(NafisBottomNavigation.Model(1, R.drawable.home))
-        bottomNavigation.add(NafisBottomNavigation.Model(2, R.drawable.station))
-        bottomNavigation.add(NafisBottomNavigation.Model(3, R.drawable.reward))
-        bottomNavigation.add(NafisBottomNavigation.Model(4, R.drawable.settings2))
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
-        bottomNavigation.setOnShowListener {
-            when (it.id) {
-                1 ->{
+        bottomNavigation.itemIconTintList = resources.getColorStateList(R.color.menu_item)
+        bottomNavigation.itemTextColor = resources.getColorStateList(R.color.menu_item)
+
+        bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home -> {
                     replaceFragment(Home())
-
+                    true
                 }
-                2 ->{
-
+                R.id.stations -> {
                     replaceFragment(Stations())
-
+                    true
                 }
-                3 ->{
-
+                R.id.rewards -> {
                     replaceFragment(Rewards())
-
+                    true
                 }
-                4 ->{
-
+                R.id.settings -> {
                     replaceFragment(More())
-
+                    true
                 }
+                else -> false
             }
         }
 
-        replaceFragment(Home())
-        bottomNavigation.show(1)
-
-
+        if (savedInstanceState == null) {
+            replaceFragment(Home())
+            bottomNavigation.selectedItemId = R.id.home
+        }
     }
-
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
 }
-
-
