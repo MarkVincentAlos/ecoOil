@@ -29,6 +29,8 @@
                 android:id="@+id/register"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/akshar_medium"
+                android:layout_marginLeft="10dp"
                 android:text="@string/register"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
@@ -45,6 +47,7 @@
                 android:drawableLeft="@drawable/email"
                 android:drawablePadding="3dp"
                 android:hint="Email"
+                android:fontFamily="@font/akshar_medium"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"/>
@@ -58,6 +61,7 @@
                 android:drawableLeft="@drawable/lock"
                 android:drawablePadding="3dp"
                 android:hint="Enter Password"
+                android:fontFamily="@font/akshar_medium"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"/>
@@ -71,6 +75,7 @@
                 android:drawableLeft="@drawable/lock"
                 android:drawablePadding="3dp"
                 android:hint="Confirm Password"
+                android:fontFamily="@font/akshar_medium"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"/>
@@ -94,6 +99,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#F44336"
                     android:text="@string/login"
+                    android:fontFamily="@font/akshar_medium"
                     android:textColor="@color/white"
                     android:textSize="10dp"
                     android:layout_weight="1"
@@ -109,6 +115,7 @@
                 android:layout_gravity="center"
                 android:backgroundTint="#40B82C"
                 android:text="@string/register"
+                android:fontFamily="@font/akshar_medium"
                 android:textColor="@color/white"
                 android:textSize="10dp"
                 android:layout_weight="1"
