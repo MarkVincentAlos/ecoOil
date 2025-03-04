@@ -17,6 +17,15 @@
             android:orientation="horizontal">
 
 
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/back"
+                android:paddingTop="20dp"
+                android:background="@color/trans"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -25,7 +34,10 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:paddingTop="20dp"
-                android:text="@string/p_profile"/>
+                android:paddingRight="40dp"
+                android:text="@string/p_profile"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

@@ -20,7 +20,7 @@ class splash : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish()
-        }, 2000)
+        }, 1000)
     }
 
     override fun onDestroy() {
