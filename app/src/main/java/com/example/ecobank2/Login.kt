@@ -14,7 +14,7 @@ class Login : AppCompatActivity() {
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.Sign.setOnClickListener {
+        binding.Login.setOnClickListener {
             var isValid = true
             val name = binding.number2.text.toString()
             val pass = binding.Pass2.text.toString()
@@ -41,7 +41,7 @@ class Login : AppCompatActivity() {
                 binding.Pass2.error = "Invalid Password"
             }
         }
-        binding.Register.setOnClickListener {
+        binding.Create.setOnClickListener {
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }

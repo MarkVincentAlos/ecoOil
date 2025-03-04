@@ -16,114 +16,119 @@
         android:layout_marginTop="10dp"
         app:srcCompat="@drawable/ecooil" />
 
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_marginTop="150dp"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="50dp">
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/LOGIN"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/number2"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/editviews"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="3dp"
+            android:hint="@string/card_number"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Pass2"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/editviews"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="3dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/LOGIN"
-                android:layout_width="match_parent"
+                android:id="@+id/forgot"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sign_in"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:paddingLeft="7dp"
+                android:text="@string/forgot"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
+        </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/number2"
-                android:layout_width="290dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/editviews"
-                android:drawableLeft="@drawable/user"
-                android:drawablePadding="3dp"
-                android:hint="@string/card_number"
-                android:inputType="text"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"/>
+        <View
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@android:color/darker_gray" />
 
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Pass2"
-                android:layout_width="290dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/editviews"
-                android:drawableLeft="@drawable/lock"
-                android:drawablePadding="3dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
-
-            <LinearLayout
-                android:layout_width="290dp"
-                android:layout_height="35dp"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/forgot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:text="@string/forgot"
-                    android:textAlignment="textStart"
-                    android:clickable="true"
-                    android:textColor="@color/black"
-                    android:textSize="10sp" />
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/Register"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@color/transparent"
-                    android:clickable="true"
-                    android:text="@string/register"
-                    android:textColor="@color/black"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
             <Button
-                android:id="@+id/Sign"
+                android:id="@+id/Create"
+                android:layout_marginTop="10dp"
+                android:layout_width="290dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#F44336"
+                android:text="@string/create"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:layout_weight="1"
+                android:textStyle="bold" />
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/Login"
                 android:layout_marginTop="10dp"
                 android:layout_width="290dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:backgroundTint="#40B82C"
-                android:text="@string/sign_in"
+                android:text="@string/login"
                 android:textColor="@color/white"
                 android:textSize="10dp"
+                android:layout_weight="1"
                 android:textStyle="bold" />
-
-
         </LinearLayout>
 
-
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </LinearLayout>
