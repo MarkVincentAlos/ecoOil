@@ -1,5 +1,6 @@
 package com.example.ecobank2
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +23,10 @@ class Settings : Fragment() {
     ): View? {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         binding.back.setOnClickListener {navigateToFragment(More())}
+        binding.LOGOUT.setOnClickListener(){
+            val intent = Intent(requireContext(), Login::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
     private fun navigateToFragment(fragment: Fragment) {

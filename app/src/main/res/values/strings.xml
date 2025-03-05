@@ -2,7 +2,7 @@
     <string name="app_name">ecoOil</string>
     <string name="quote">bringing affordable and high-quality fuel products to every Filipino.</string>
     <string name="deposit_balance">Balance</string>
-    <string name="card_number">card number</string>
+    <string name="card_number">email/card number</string>
     <string name="d_amount">amount</string>
     <string name="d_message">message(optional)</string>
     <string name="d_confirm">confirm</string>

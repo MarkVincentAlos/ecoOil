@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
+            android:fontFamily="@font/akshar_medium"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -24,6 +24,7 @@
             android:text="Rewards" />
 
         <androidx.cardview.widget.CardView
+            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
@@ -54,6 +55,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
             android:text="Available Rewards"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -63,6 +65,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rewards_recycler"
             android:layout_width="match_parent"
+            android:visibility="invisible"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:scrollbars="vertical"/>
