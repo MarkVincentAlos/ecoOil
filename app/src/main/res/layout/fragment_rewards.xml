@@ -26,8 +26,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
             android:layout_marginTop="20dp"
             android:padding="20dp">
 
@@ -37,20 +37,16 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ecooil"
-                    android:layout_marginEnd="15dp"/>
-
                 <TextView
                     android:id="@+id/reward_points"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
                     android:text="You have 500 Points"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    app:drawableLeftCompat="@drawable/ecooil" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

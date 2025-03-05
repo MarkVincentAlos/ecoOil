@@ -8,10 +8,12 @@
     <string name="d_confirm">confirm</string>
     <string name="login">LOGIN</string>
     <string name="welcome">Welcome!</string>
-    <string name="create">create account</string>
+    <string name="create">CREATE ACCOUNT</string>
     <string name="password">PASSWORD</string>
     <string name="remember">Remember me?</string>
     <string name="credit">•••• •••• •••• ••••</string>
+    <string name="phone">Phone number</string>
+    <string name="phone2">09XX - XXXX - YYYY</string>
     <string name="c_name">ABCDEFG H. IJKL</string>
     <string name="amount_balance">4000.00pts</string>
     <string name="p_profile">Profile</string>

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ecobank2.databinding.ActivityRegisterBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
@@ -16,7 +17,8 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
+        val binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
 
@@ -45,6 +47,14 @@ class Register : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
+                    auth.currentUser?.let { user ->
+                        user.sendEmailVerification()
+                            .addOnCompleteListener{
+                                if (task.isSuccessful) {
+                                    showToast("Registration successful! Please check your email for verification.")
+                                }
+                            }
+                    }
                     if (task.isSuccessful) {
                         showToast("Registration successful!")
                         startActivity(Intent(this, Login::class.java))
@@ -53,6 +63,10 @@ class Register : AppCompatActivity() {
                         showToast("Registration failed: ${task.exception?.message}")
                     }
                 }
+        }
+        binding.Login.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
     }
 

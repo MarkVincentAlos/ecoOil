@@ -37,11 +37,18 @@ class Login : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish() // Closes the login activity
+                        val user = auth.currentUser
+                        if (user != null) {
+                            if (user.isEmailVerified) {
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Toast.makeText(this, "Verify your email first!!", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     } else {
-                        Toast.makeText(this, "Login Failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Create an Account.", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
@@ -55,5 +62,6 @@ class Login : AppCompatActivity() {
             val intent = Intent(this, Forgot::class.java)
             startActivity(intent)
         }
+
     }
 }

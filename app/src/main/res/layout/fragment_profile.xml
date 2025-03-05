@@ -112,24 +112,24 @@
             android:text="@string/p_email2" />
 
         <TextView
-            android:id="@+id/p_mobile"
+            android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/akshar_medium"
             android:paddingStart="20dp"
-            android:text="@string/p_mobile"
+            android:text="@string/phone"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/p_mobile2"
+            android:id="@+id/phone2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="10dp"
             android:paddingStart="50dp"
             android:textSize="20sp"
-            android:text="@string/p_mobile2" />
+            android:text="@string/phone2" />
 
 
 
