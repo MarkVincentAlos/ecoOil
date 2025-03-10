@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:hint="<<click link to redirect>>"/>
+                android:hint="@string/link"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
