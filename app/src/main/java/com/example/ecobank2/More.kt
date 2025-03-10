@@ -24,7 +24,6 @@ class More : Fragment() {
         binding.help.setOnClickListener { navigateToFragment(Help()) }
         binding.about.setOnClickListener {navigateToFragment(About())}
         binding.settings.setOnClickListener{navigateToFragment(Settings())}
-        binding.pay.setOnClickListener{navigateToFragment(Pay())}
 
         return binding.root
     }
