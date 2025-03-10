@@ -24,13 +24,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="HELP"
+            android:text="@string/help"
             android:textAlignment="center"
             android:fontFamily="@font/akshar_medium"
             android:textColor="@android:color/black"
             android:textSize="40sp"
             android:paddingTop="20dp"
-            android:paddingRight="40dp"
+            android:paddingEnd="40dp"
             android:layout_weight="1"
             android:textStyle="bold" />
     </LinearLayout>
@@ -48,70 +48,91 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:gravity="start">
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akshar_medium"
+                android:text="@string/h_address2" />
 
             <TextView
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginBottom="4dp"
                 android:clickable="true"
-                android:drawableStart="@drawable/location"
                 android:drawablePadding="6dp"
                 android:focusable="true"
                 android:fontFamily="@font/akshar_medium"
                 android:text="@string/h_address"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:drawableStartCompat="@drawable/location" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@color/trans"/>
+                android:background="@color/trans" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akshar_medium"
+                android:text="@string/h_email2" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:focusable="true"
+                android:fontFamily="@font/akshar_medium"
                 android:text="@string/h_email"
                 android:textSize="14sp"
-                android:fontFamily="@font/akshar_medium"
-                android:drawableStart="@drawable/email"
-                android:drawablePadding="6dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"/>
+                app:drawableStartCompat="@drawable/email" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@color/trans"/>
+                android:background="@color/trans" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akshar_medium"
+                android:text="@string/h_email2" />
 
             <TextView
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:focusable="true"
+                android:fontFamily="@font/akshar_medium"
                 android:text="@string/h_phone"
                 android:textSize="14sp"
-                android:fontFamily="@font/akshar_medium"
-                android:drawableStart="@drawable/phone"
-                android:drawablePadding="6dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"/>
+                app:drawableStartCompat="@drawable/phone" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:hint="@string/link"/>
+                android:hint="@string/link" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

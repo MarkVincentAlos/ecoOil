@@ -33,12 +33,16 @@
     <string name="email">Email</string>
     <string name="reset">reset password</string>
     <string name="register">REGISTER</string>
-    <string name="h_address"><strong>Address:</strong>\n\n <u>XFHJ+4P3, Urdaneta Junction - Dagupan Rd, Santa Barbara, Pangasinan, Philippines</u></string>
-    <string name="h_phone"><strong>Phone:</strong>\n\n <u>09493473888</u></string>
-    <string name="h_email"><strong>Email:</strong>\n\n <u>marketing@ecology.com.ph</u></string>
+    <string name="h_address">\n<u>XFHJ+4P3, Urdaneta Junction - Dagupan Rd, Santa Barbara, Pangasinan, Philippines</u></string>
+    <string name="h_address2"><strong>Address:</strong></string>
+    <string name="h_phone"><u>09493473888</u></string>
+    <string name="h_phone2"><strong>Phone:</strong></string>
+    <string name="h_email"><u>marketing@ecology.com.ph</u></string>
+    <string name="h_email2"><strong>Email:</strong></string>
     <string name="about">Who we are..</string>
     <string name="about2"><b>Ecology Energy Corporation</b> is a Filipino-owned company that started in 1995 engaging in manufacturing of multi-purpose and specialized greases and bitumen-based products for the automotive, industrial, and construction industry. Additionally, it is also engaged in petroleum waste management.</string>
     <string name="about3"><b>Our Mission</b>\n\n EcoOil aims to Fuel The Filipino Drive by uplifting the Filipino spirit through its core values: reliability, quality-service and safety.\n We aim to raise industry standards by fostering livelihood through attainable offerings and promotions.\n\n <b>Our Vision</b>\n\n To be the top Filipino-owned petroleum retail brand in the Philippines.</string>
     <string name="link"><![CDATA[<<click link to redirect>>]]></string>
+    <string name="help">HELP</string>
 
 </resources>
