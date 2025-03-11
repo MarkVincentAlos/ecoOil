@@ -62,4 +62,6 @@ dependencies {
     implementation (libs.nafisbottomnav)
     implementation(libs.play.services.maps.v1810)
     implementation(libs.play.services.maps)
+    implementation(libs.zxing.core)
+    implementation(libs.zxing.android)
 }

@@ -7,39 +7,44 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
-import com.example.ecobank2.databinding.FragmentProfileBinding
 import com.example.ecobank2.databinding.FragmentSettingsBinding
-
 
 class Settings : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        binding.back.setOnClickListener {navigateToFragment(More())}
-        binding.LOGOUT.setOnClickListener(){
+
+        binding.back.setOnClickListener { navigateToFragment(More()) }
+
+        binding.LOGOUT.setOnClickListener {
             val intent = Intent(requireContext(), Login::class.java)
             startActivity(intent)
+            requireActivity().finish()
         }
+
+        binding.button2.setOnClickListener {
+            val intent = Intent(requireContext(), Qrr::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
+
     private fun navigateToFragment(fragment: Fragment) {
-        val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
