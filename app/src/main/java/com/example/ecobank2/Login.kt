@@ -1,6 +1,9 @@
 package com.example.ecobank2
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +27,11 @@ class Login : AppCompatActivity() {
         binding.Login.setOnClickListener {
             val email = binding.number2.text.toString().trim()
             val password = binding.Pass2.text.toString().trim()
+
+            if (!isInternetAvailable()) {
+                Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (email.isEmpty()) {
                 binding.number2.error = "Email is required"
@@ -62,6 +70,12 @@ class Login : AppCompatActivity() {
             val intent = Intent(this, Forgot::class.java)
             startActivity(intent)
         }
+    }
 
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 }
