@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
@@ -18,94 +18,109 @@
 
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_marginTop="150dp"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="50dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_width="290dp"
+            android:layout_height="wrap_content">
 
-
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/trans"
+                android:src="@drawable/back_white" />
 
             <TextView
                 android:id="@+id/FORGOTSign"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/akshar_medium"
                 android:text="@string/forgot"
-                android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
-                    android:layout_width="140dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/editviews"
-                    android:drawableLeft="@drawable/email"
-                    android:drawablePadding="3dp"
-                    android:hint="@string/email"
-                    android:inputType="text"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp" />
+        </LinearLayout>
 
-                <Button
-                    android:id="@+id/otp"
-                    android:layout_width="28dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#40B82C"
-                    android:text="@string/OTP"
-                    android:textColor="@color/white"
-                    android:textSize="10dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/otp2"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:id="@+id/email"
+                android:layout_width="140dp"
+                android:layout_height="37dp"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:background="@drawable/editviews"
+                android:drawableLeft="@drawable/email"
                 android:drawablePadding="3dp"
-                android:hint="@string/OTP2"
+                android:fontFamily="@font/akshar_medium"
+                android:hint="@string/email"
                 android:inputType="text"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp" />
 
             <Button
-                android:id="@+id/resetpass"
-                android:layout_marginTop="10dp"
-                android:layout_width="290dp"
+                android:id="@+id/otp"
+                android:layout_width="28dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:backgroundTint="#40B82C"
-                android:text="@string/reset"
+                android:fontFamily="@font/akshar_medium"
+                android:text="@string/OTP"
                 android:textColor="@color/white"
                 android:textSize="10dp"
                 android:textStyle="bold" />
-
-
-
         </LinearLayout>
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/otp2"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/editviews"
+            android:drawablePadding="3dp"
+            android:fontFamily="@font/akshar_medium"
+            android:hint="@string/OTP2"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
 
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+        <View
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/resetpass"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/akshar_medium"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#40B82C"
+            android:text="@string/reset"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+</RelativeLayout>
