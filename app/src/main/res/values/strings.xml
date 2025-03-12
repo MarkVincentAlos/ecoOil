@@ -41,8 +41,10 @@
     <string name="h_email2"><strong>Email:</strong></string>
     <string name="about">Who we are..</string>
     <string name="about2"><b>Ecology Energy Corporation</b> is a Filipino-owned company that started in 1995 engaging in manufacturing of multi-purpose and specialized greases and bitumen-based products for the automotive, industrial, and construction industry. Additionally, it is also engaged in petroleum waste management.</string>
-    <string name="about3"><b>Our Mission</b>\n\n EcoOil aims to Fuel The Filipino Drive by uplifting the Filipino spirit through its core values: reliability, quality-service and safety.\n We aim to raise industry standards by fostering livelihood through attainable offerings and promotions.\n\n <b>Our Vision</b>\n\n To be the top Filipino-owned petroleum retail brand in the Philippines.</string>
+    <string name="about3"><b>Our Mission</b>\n\n EcoOil aims to Fuel The Filipino Drive by uplifting the Filipino spirit through its core values: reliability, quality-service and safety.\n\n We aim to raise industry standards by fostering livelihood through attainable offerings and promotions.\n\n <b>Our Vision</b>\n\n To be the top Filipino-owned petroleum retail brand in the Philippines.</string>
     <string name="link"><![CDATA[<<click link to redirect>>]]></string>
     <string name="help">HELP</string>
+    <string name="abouts">About</string>
+    <string name="about_eco">In 2016, Ecology Energy entered the downstream petroleum industry with its retail network across the country, wholesale business serving both commercial and industrial customers and a fuel importation terminal. Ecology Energy Corporation also owns subsidiaries handling end-to-end support services for its main business, including a Singapore-based fuel trading, road transport, marine transport, industrial and non-life insurance. With its highly competent leadership and strategic logistical alliances providing access to fuel depots around the country and its highly integrated logistics capability to support its fast-growing retail network and commercial sales Ecology Energy is poised to become one of the major independent oil companies in the Philippines.</string>
 
 </resources>
