@@ -10,10 +10,8 @@ kotlinStdlibJdk7 = "2.0.21"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
-nafisbottomnav = "5.0"
 googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
-playServicesMaps = "19.0.0"
-playServicesMapsVersion = "18.1.0"
+osmdroidAndroidVersion = "6.1.20"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.2.0"
 credentials = "1.5.0-rc01"
@@ -24,6 +22,7 @@ firebaseFirestore = "25.1.2"
 firebaseStorage = "21.0.1"
 firebasePerf = "21.0.4"
 googleFirebaseFirebasePerf = "1.4.2"
+playServicesLocation = "21.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,9 +33,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-nafisbottomnav = { module = "com.github.Foysalofficial:NafisBottomNav", version.ref = "nafisbottomnav" }
-play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
-play-services-maps-v1810 = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMapsVersion" }
+osmdroid-android-vinsertversionhere = { module = "org.osmdroid:osmdroid-android", version.ref = "osmdroidAndroidVersion" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credentialsPlayServicesAuth" }
@@ -45,6 +42,7 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 firebase-perf = { group = "com.google.firebase", name = "firebase-perf", version.ref = "firebasePerf" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 zxing-core = { module = "com.google.zxing:core", version = "3.5.2" }
 zxing-android = { module = "com.journeyapps:zxing-android-embedded", version = "4.3.0" }
 [plugins]

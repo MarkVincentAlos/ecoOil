@@ -15,8 +15,11 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        maven { url = uri("https://jitpack.io") }
+        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+            name = "OSS-Sonatype" }
+
         mavenCentral()
+        mavenLocal()
     }
 }
 
