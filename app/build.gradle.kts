@@ -63,4 +63,6 @@ dependencies {
     implementation(libs.zxing.android)
     implementation(libs.osmdroid.android.vinsertversionhere)
     implementation(libs.play.services.location)
+    implementation(libs.androidx.fragment.ktx)
+
 }

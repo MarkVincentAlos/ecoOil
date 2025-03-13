@@ -21,6 +21,13 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         loadUserPoints()
+        binding.pointsText.setOnClickListener {
+            val fragment = Qrr()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
 
         return binding.root
     }
@@ -55,6 +62,8 @@ class Home : Fragment() {
             }
         }
     }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
