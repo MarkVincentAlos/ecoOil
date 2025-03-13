@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.provider.inClassPathMode
+
 pluginManagement {
     repositories {
         google {
@@ -20,6 +22,7 @@ dependencyResolutionManagement {
 
         mavenCentral()
         mavenLocal()
+
     }
 }
 

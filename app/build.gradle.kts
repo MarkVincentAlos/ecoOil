@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.google.firebase.firebase.perf)
+    "com.android.application"
 }
 
 android {
@@ -64,5 +65,7 @@ dependencies {
     implementation(libs.osmdroid.android.vinsertversionhere)
     implementation(libs.play.services.location)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.play.services.location)
+    implementation(libs.firebase.analytics)
 
 }
