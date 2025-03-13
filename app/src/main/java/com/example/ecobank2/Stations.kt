@@ -63,7 +63,7 @@ class Stations : Fragment() {
 
         val locationRequest = LocationRequest.create().apply {
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-            interval = 3000
+            interval = 1000
         }
 
         locationCallback = object : LocationCallback() {
@@ -80,7 +80,7 @@ class Stations : Fragment() {
     private fun updateUserLocation(location: Location) {
         val newGeoPoint = GeoPoint(location.latitude, location.longitude)
         userMarker?.position = newGeoPoint
-        mapViewStations?.controller?.setZoom(12.0) // Auto-zoom when location updates
+        mapViewStations?.controller?.setZoom(12.0)
         mapViewStations?.controller?.setCenter(newGeoPoint)
         mapViewStations?.invalidate()
     }
