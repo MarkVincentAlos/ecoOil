@@ -46,7 +46,8 @@
             android:layout_weight="1"
             android:fontFamily="@font/akshar_medium"
             android:text="transaction notification"
-            android:textSize="20sp"/>
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
 
         <Switch
@@ -58,13 +59,14 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/button2"
+        android:id="@+id/qr"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_margin="20dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/akshar_medium"
+        android:textColor="@color/black"
         android:text="@string/qr"
         android:textSize="20sp" />
 

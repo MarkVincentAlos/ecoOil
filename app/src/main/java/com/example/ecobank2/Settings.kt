@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
 import com.example.ecobank2.databinding.FragmentSettingsBinding
 
 class Settings : Fragment() {
@@ -22,16 +21,14 @@ class Settings : Fragment() {
 
         binding.back.setOnClickListener { navigateToFragment(More()) }
 
+        binding.qr.setOnClickListener { navigateToFragment(Qr()) }
+
         binding.LOGOUT.setOnClickListener {
             val intent = Intent(requireContext(), Login::class.java)
             startActivity(intent)
             requireActivity().finish()
         }
 
-        binding.button2.setOnClickListener {
-            val intent = Intent(requireContext(), Qrr::class.java)
-            startActivity(intent)
-        }
 
         return binding.root
     }
