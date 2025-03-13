@@ -23,8 +23,8 @@ class Register : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         val emailField = findViewById<TextInputEditText>(R.id.email)
-        val passwordField = findViewById<TextInputEditText>(R.id.pass)
-        val confirmPasswordField = findViewById<TextInputEditText>(R.id.pass2)
+        val passwordField = findViewById<TextInputEditText>(R.id.Pass1)
+        val confirmPasswordField = findViewById<TextInputEditText>(R.id.Pass2)
         val registerButton = findViewById<Button>(R.id.registerButton)
 
         registerButton.setOnClickListener {

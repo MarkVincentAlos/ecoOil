@@ -35,48 +35,68 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+            <com.google.android.material.textfield.TextInputLayout
+                android:gravity="center"
                 android:layout_width="290dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/editviews"
-                android:drawableLeft="@drawable/email"
-                android:drawablePadding="3dp"
-                android:hint="Email"
-                android:fontFamily="@font/akshar_medium"
-                android:inputType="text"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"/>
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pass"
+                android:hint="@string/card_number"
+                app:startIconDrawable="@drawable/user"
+                app:boxStrokeColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="290dp"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/akshar_medium"
+                    android:inputType="text"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="290dp"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/editviews"
-                android:drawableLeft="@drawable/lock"
-                android:drawablePadding="3dp"
-                android:hint="Enter Password"
-                android:fontFamily="@font/akshar_medium"
-                android:inputType="textPassword"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"/>
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pass2"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                app:startIconDrawable="@drawable/lock"
+                app:endIconMode="password_toggle"
+                app:boxStrokeColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Pass1"
+                    android:layout_width="290dp"
+                    android:layout_height="40dp"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/white"
+                    android:background="@color/white"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/akshar_medium"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="290dp"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/editviews"
-                android:drawableLeft="@drawable/lock"
-                android:drawablePadding="3dp"
+                android:layout_marginTop="10dp"
                 android:hint="Confirm Password"
-                android:fontFamily="@font/akshar_medium"
-                android:inputType="textPassword"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"/>
+                app:startIconDrawable="@drawable/lock"
+                app:endIconMode="password_toggle"
+                app:boxStrokeColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Pass2"
+                    android:layout_width="290dp"
+                    android:layout_height="40dp"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/white"
+                    android:background="@color/white"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/akshar_medium"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <View
                 android:layout_width="320dp"
                 android:layout_height="1dp"

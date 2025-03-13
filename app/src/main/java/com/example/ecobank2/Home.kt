@@ -29,6 +29,14 @@ class Home : Fragment() {
                 .commit()
         }
 
+        binding.gostation.setOnClickListener{
+            val fragment = Stations()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         return binding.root
     }
 

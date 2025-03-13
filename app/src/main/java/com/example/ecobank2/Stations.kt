@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -23,6 +24,7 @@ class Stations : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
     private var userMarker: Marker? = null
+    private var firstLocationUpdate = true
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,6 +35,11 @@ class Stations : Fragment() {
         val view = inflater.inflate(R.layout.fragment_stations, container, false)
         mapViewStations = view.findViewById(R.id.mapViewStations)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+
+        val fabRefresh = view.findViewById<FloatingActionButton>(R.id.refresh)
+        fabRefresh.setOnClickListener {
+            refreshUserLocation()
+        }
 
         setupMap()
         addEcoOilStations()
@@ -53,6 +60,20 @@ class Stations : Fragment() {
         }
         mapViewStations?.overlays?.add(userMarker)
     }
+    @SuppressLint("MissingPermission")
+    private fun refreshUserLocation() {
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+            return
+        }
+
+        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+            if (location != null) {
+                updateUserLocation(location, firstUpdate = true)
+            }
+        }.addOnFailureListener {
+        }
+    }
 
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdates() {
@@ -61,15 +82,15 @@ class Stations : Fragment() {
             return
         }
 
-        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000L)
-            .setMinUpdateIntervalMillis(500L)
+        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,1000)
             .setWaitForAccurateLocation(true)
             .build()
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
                 for (location in locationResult.locations) {
-                    updateUserLocation(location)
+                    updateUserLocation(location,firstUpdate = firstLocationUpdate)
+                    if (firstLocationUpdate) firstLocationUpdate = false
                 }
             }
         }
@@ -77,13 +98,16 @@ class Stations : Fragment() {
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null)
     }
 
-    private fun updateUserLocation(location: Location) {
+    private fun updateUserLocation(location: Location, firstUpdate: Boolean) {
         val newGeoPoint = GeoPoint(location.latitude, location.longitude)
         userMarker?.position = newGeoPoint
-        mapViewStations?.controller?.setZoom(12.0)
-        mapViewStations?.controller?.setCenter(newGeoPoint)
         mapViewStations?.invalidate()
+
+        if (firstUpdate) {
+            mapViewStations?.controller?.setCenter(newGeoPoint)
+        }
     }
+
 
     private fun addMarker(lat: Double, lon: Double, title: String) {
         val marker = Marker(mapViewStations)

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ecobank2.databinding.ActivitySplashBinding
 
@@ -15,6 +16,7 @@ class splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        enableEdgeToEdge()
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, Login::class.java)

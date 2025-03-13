@@ -53,5 +53,7 @@
     <string name="diesel_price">P0.80 PER LITER</string>
     <string name="eco_gasoline">Eco GASOLINE</string>
     <string name="gasoline_price">P0.80 PER LITER</string>
+    <string name="refresh_location">Refresh Location</string>
+    <string name="send">send</string>
 
 </resources>
