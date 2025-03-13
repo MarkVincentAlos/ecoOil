@@ -2,7 +2,7 @@
     <string name="app_name">ecoOil</string>
     <string name="quote">bringing affordable and high-quality fuel products to every Filipino.</string>
     <string name="deposit_balance">Balance</string>
-    <string name="card_number">email/card number</string>
+    <string name="card_number">email</string>
     <string name="d_amount">amount</string>
     <string name="d_message">message(optional)</string>
     <string name="d_confirm">confirm</string>
@@ -46,5 +46,6 @@
     <string name="help">HELP</string>
     <string name="abouts">About</string>
     <string name="about_eco">In 2016, Ecology Energy entered the downstream petroleum industry with its retail network across the country, wholesale business serving both commercial and industrial customers and a fuel importation terminal. Ecology Energy Corporation also owns subsidiaries handling end-to-end support services for its main business, including a Singapore-based fuel trading, road transport, marine transport, industrial and non-life insurance. With its highly competent leadership and strategic logistical alliances providing access to fuel depots around the country and its highly integrated logistics capability to support its fast-growing retail network and commercial sales Ecology Energy is poised to become one of the major independent oil companies in the Philippines.</string>
+    <string name="qr">Generate QR code</string>
 
 </resources>

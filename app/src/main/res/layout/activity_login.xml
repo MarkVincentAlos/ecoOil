@@ -15,6 +15,13 @@
         android:layout_height="100dp"
         android:layout_marginTop="10dp"
         app:srcCompat="@drawable/ecooil" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="#002D70"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -136,4 +143,11 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/dimBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"/>
 </RelativeLayout>

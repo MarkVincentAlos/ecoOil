@@ -45,7 +45,7 @@ class Stations : Fragment() {
         mapViewStations?.setTileSource(TileSourceFactory.MAPNIK)
         mapViewStations?.setMultiTouchControls(true)
 
-        mapViewStations?.controller?.setZoom(8.0)
+        mapViewStations?.controller?.setZoom(15.0)
 
         userMarker = Marker(mapViewStations).apply {
             title = "Your Location"
@@ -61,10 +61,10 @@ class Stations : Fragment() {
             return
         }
 
-        val locationRequest = LocationRequest.create().apply {
-            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-            interval = 1000
-        }
+        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000L)
+            .setMinUpdateIntervalMillis(500L)
+            .setWaitForAccurateLocation(true)
+            .build()
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {

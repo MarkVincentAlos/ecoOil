@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context=".Transactions">
     <LinearLayout
+        android:id="@+id/transactions"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:orientation="horizontal">
