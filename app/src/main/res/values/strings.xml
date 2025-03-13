@@ -2,7 +2,7 @@
     <string name="app_name">ecoOil</string>
     <string name="quote">bringing affordable and high-quality fuel products to every Filipino.</string>
     <string name="deposit_balance">Balance</string>
-    <string name="card_number">email</string>
+    <string name="email">Email</string>
     <string name="d_amount">amount</string>
     <string name="d_message">message(optional)</string>
     <string name="d_confirm">confirm</string>
@@ -30,7 +30,6 @@
     <string name="forgot">forgot password?</string>
     <string name="OTP">GET OTP</string>
     <string name="OTP2">OTP</string>
-    <string name="email">Email</string>
     <string name="reset">reset password</string>
     <string name="register">REGISTER</string>
     <string name="h_address">\n<u>XFHJ+4P3, Urdaneta Junction - Dagupan Rd, Santa Barbara, Pangasinan, Philippines</u></string>
