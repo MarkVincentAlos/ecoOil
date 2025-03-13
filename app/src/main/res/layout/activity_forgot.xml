@@ -57,7 +57,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/email"
@@ -67,7 +67,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:fontFamily="@font/akshar_medium"
                     android:inputType="textEmailAddress"
@@ -75,7 +75,7 @@
                     android:background="@color/white"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <ImageButton
                 android:gravity="center"
                 android:id="@+id/otp"
                 android:layout_width="0dp"
@@ -84,7 +84,7 @@
                 android:layout_marginStart="10dp"
                 android:backgroundTint="#40B82C"
                 android:fontFamily="@font/akshar_medium"
-                android:text="@string/send"
+                android:src="@drawable/go"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -100,12 +100,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/otp2"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/akshar_medium"
                 android:inputType="number"
                 android:paddingStart="10dp"
-                android:background="@color/white"
-                android:fontFamily="@font/akshar_medium"/>
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <View

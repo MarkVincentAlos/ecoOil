@@ -42,8 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/email"
                 app:boxBackgroundColor="@color/white"
-                app:startIconDrawable="@drawable/email"
-                app:hintTextColor="@color/black">
+                app:startIconDrawable="@drawable/email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/number2"
@@ -64,7 +63,6 @@
                 android:hint="Confirm Password"
                 app:boxBackgroundColor="@color/white"
                 app:startIconDrawable="@drawable/lock"
-                app:hintTextColor="@color/black"
                 app:endIconMode="password_toggle"
                 >
 
@@ -89,7 +87,6 @@
                 android:hint="Password"
                 app:boxBackgroundColor="@color/white"
                 app:startIconDrawable="@drawable/lock"
-                app:hintTextColor="@color/black"
                 app:endIconMode="password_toggle"
                 >
 
