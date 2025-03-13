@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
-class Qrz : Fragment() {
+class Qr : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 

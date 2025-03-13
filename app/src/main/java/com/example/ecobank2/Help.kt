@@ -40,7 +40,7 @@ class Help : Fragment() {
         }
 
         binding.location.setOnClickListener {
-            val address = "XFHJ+4P3, Urdaneta Junction - Dagupan Rd, Santa Barbara, Pangasinan"
+            val address = "Phoenix Sun Business Park"
             val gmmIntentUri = Uri.parse("geo:0,0?q=$address")
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             mapIntent.setPackage("com.google.android.apps.maps")
