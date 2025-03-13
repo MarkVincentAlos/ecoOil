@@ -62,7 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/akshar_medium"
-                android:drawableEnd="@drawable/edit"
                 android:paddingTop="15dp"
                 android:text="@string/p_name"
                 android:textAlignment="center"
@@ -75,11 +74,11 @@
             android:id="@+id/p_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/akshar_medium"
             android:paddingStart="20dp"
-            android:textSize="20sp"
-            android:text="@string/p_number" />
+            android:text="@string/p_number"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/p_number2"
