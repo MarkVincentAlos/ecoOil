@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
-class Qr : Fragment() {
+class Qrz : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -21,7 +21,7 @@ class Qr : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_qrr, container, false)
+        return inflater.inflate(R.layout.fragment_qr, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
