@@ -75,19 +75,6 @@
                     android:background="@color/white"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageButton
-                android:gravity="center"
-                android:id="@+id/otp"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:backgroundTint="#40B82C"
-                android:fontFamily="@font/akshar_medium"
-                android:src="@drawable/go"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- OTP Input -->
@@ -95,18 +82,7 @@
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:hint="@string/OTP2"
-            app:boxStrokeColor="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/otp2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:fontFamily="@font/akshar_medium"
-                android:inputType="number"
-                android:paddingStart="10dp"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeColor="@color/white"/>
 
         <View
             android:layout_width="320dp"
