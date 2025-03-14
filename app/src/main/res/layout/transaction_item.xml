@@ -28,13 +28,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/transaction_points"
+                android:id="@+id/transaction_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Earned 10 Points"
+                android:text="$50.00"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/transaction_date"
@@ -46,12 +45,13 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/transaction_amount"
+            android:id="@+id/transaction_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$50.00"
+            android:text="10 Points"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
