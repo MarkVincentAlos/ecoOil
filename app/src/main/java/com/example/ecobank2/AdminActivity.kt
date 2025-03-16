@@ -1,14 +1,16 @@
 package com.example.ecobank2
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.math.max
 
 class AdminActivity : AppCompatActivity() {
 
+    private lateinit var backButton: ImageButton
     private lateinit var userIdSpinner: Spinner
     private lateinit var amountInput: EditText
     private lateinit var transactionTypeSpinner: Spinner
@@ -21,10 +23,16 @@ class AdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
 
+        backButton = findViewById(R.id.back)
         userIdSpinner = findViewById(R.id.user_id_spinner)
         amountInput = findViewById(R.id.input_amount)
         transactionTypeSpinner = findViewById(R.id.input_type)
         submitButton = findViewById(R.id.btn_submit_transaction)
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        } // Handle back button click
 
         fetchUsernames() // Fetch usernames dynamically from Firestore
         setupTransactionTypeSpinner()
