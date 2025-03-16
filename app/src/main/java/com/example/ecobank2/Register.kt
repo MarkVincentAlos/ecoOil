@@ -2,37 +2,35 @@ package com.example.ecobank2
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ecobank2.databinding.ActivityRegisterBinding
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Register : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val binding = ActivityRegisterBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
-        val emailField = findViewById<TextInputEditText>(R.id.email)
-        val passwordField = findViewById<TextInputEditText>(R.id.Pass1)
-        val confirmPasswordField = findViewById<TextInputEditText>(R.id.Pass2)
-        val registerButton = findViewById<Button>(R.id.registerButton)
+        binding.registerButton.setOnClickListener {
+            val email = binding.number2.text.toString().trim()
+            val username = binding.username.text.toString().trim()
+            val password = binding.Pass1.text.toString().trim()
+            val confirmPassword = binding.Pass2.text.toString().trim()
 
-        registerButton.setOnClickListener {
-            val email = emailField.text.toString().trim()
-            val password = passwordField.text.toString().trim()
-            val confirmPassword = confirmPasswordField.text.toString().trim()
-
-            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            if (email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 showToast("Please fill in all fields")
                 return@setOnClickListener
             }
@@ -45,28 +43,72 @@ class Register : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    auth.currentUser?.let { user ->
-                        user.sendEmailVerification()
-                            .addOnCompleteListener{
-                                if (task.isSuccessful) {
-                                    showToast("Registration successful! Please check your email for verification.")
-                                }
-                            }
-                    }
-                    if (task.isSuccessful) {
-                        showToast("Registration successful!")
-                        startActivity(Intent(this, Login::class.java))
-                        finish()
-                    } else {
-                        showToast("Registration failed: ${task.exception?.message}")
-                    }
+            checkUsernameExists(username) { exists ->
+                if (exists) {
+                    showToast("Username is already taken")
+                } else {
+                    registerUser (email, username, password)
                 }
+            }
         }
+
         binding.Login.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
+        }
+    }
+
+    // Check if the username already exists in 'usernames' collection
+    private fun checkUsernameExists(username: String, callback: (Boolean) -> Unit) {
+        db.collection("usernames").document(username).get()
+            .addOnSuccessListener { document ->
+                callback(document.exists())
+            }
+            .addOnFailureListener {
+                showToast("Error checking username")
+                callback(false)
+            }
+    }
+
+    // Register User in Firestore
+    private fun registerUser (email: String, username: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val userId = auth.currentUser ?.uid
+
+                if (userId != null) {
+                    // Add username -> userId in 'usernames' collection
+                    val usernameData = hashMapOf(
+                        "userId" to userId
+                    )
+                    db.collection("usernames").document(username)
+                        .set(usernameData)
+                        .addOnSuccessListener {
+                            // Add user details in 'users' collection
+                            val user = hashMapOf(
+                                "username" to username,
+                                "email" to email,
+                                "points" to 0
+                            )
+                            db.collection("users").document(userId).set(user)
+                                .addOnSuccessListener {
+                                    auth.currentUser ?.sendEmailVerification()
+                                    showToast("Registration successful! Please verify your email.")
+                                    startActivity(Intent(this, Login::class.java))
+                                    finish()
+                                }
+                                .addOnFailureListener { e ->
+                                    showToast("Error saving user data: ${e.message}")
+                                }
+                        }
+                        .addOnFailureListener { e ->
+                            showToast("Error saving username: ${e.message}")
+                        }
+                }
+            } else {
+                showToast("Registration failed: ${task.exception?.message}")
+            }
         }
     }
 

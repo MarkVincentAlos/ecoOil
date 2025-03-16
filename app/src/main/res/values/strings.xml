@@ -3,6 +3,7 @@
     <string name="quote">bringing affordable and high-quality fuel products to every Filipino.</string>
     <string name="deposit_balance">Balance</string>
     <string name="email">Email</string>
+    <string name="email2">Email/Username</string>
     <string name="d_amount">amount</string>
     <string name="d_message">message(optional)</string>
     <string name="d_confirm">confirm</string>

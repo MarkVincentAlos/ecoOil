@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecobank2.TransactionData
 import com.example.ecobank2.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TransactionAdapter(private val transactions: List<TransactionData>) :
     RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
@@ -19,22 +21,24 @@ class TransactionAdapter(private val transactions: List<TransactionData>) :
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = transactions[position]
 
-        holder.pointsTextView.text = "Points: ${transaction.amount}"
-        holder.amountTextView.text = "Amount: ${transaction.pointsEarned}"
-        holder.timestampTextView.text = "Date: ${transaction.timestamp.toDate()}"
+        // Format timestamp
+        val dateFormat = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
+        val formattedDate = transaction.timestamp.toDate()?.let { dateFormat.format(it) } ?: "Unknown"
+
+        holder.timestampTextView.text = "Date: $formattedDate"
+        holder.amountTextView.text = "Amount: ${transaction.amount}"
 
         if (transaction.amount > 0) {
-            holder.pointsTextView.text = "Gained ${transaction.pointsEarned}"
+            holder.pointsTextView.text = "Gained ${transaction.pointsEarned} points"
             holder.iconImageView.setImageResource(R.drawable.green)
             holder.pointsTextView.setTextColor(holder.itemView.context.getColor(R.color.green))
         } else {
-            holder.pointsTextView.text = "Used ${transaction.pointsEarned}"
+            holder.pointsTextView.text = "Used ${transaction.pointsEarned} points"
             holder.iconImageView.setImageResource(R.drawable.red)
             holder.pointsTextView.setTextColor(holder.itemView.context.getColor(R.color.red))
             holder.amountTextView.visibility = View.GONE
         }
     }
-
 
     override fun getItemCount(): Int {
         return transactions.size
