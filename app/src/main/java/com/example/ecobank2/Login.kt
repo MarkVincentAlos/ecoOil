@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.ecobank2.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import android.util.Patterns
 
 class Login : AppCompatActivity() {
 
@@ -30,14 +30,13 @@ class Login : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.Login.setOnClickListener {
-            val input = binding.number2.text.toString().trim() // Can be email or username
+            val input = binding.number2.text.toString().trim() // Email or username
             val password = binding.Pass2.text.toString().trim()
 
             if (!isInternetAvailable()) {
-                Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show()
+                showError("No internet connection")
                 return@setOnClickListener
             }
-
             if (input.isEmpty()) {
                 binding.number2.error = "Email or Username is required"
                 return@setOnClickListener
@@ -47,9 +46,7 @@ class Login : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            binding.progressBar.visibility = View.VISIBLE
-            binding.dimBackground.visibility = View.VISIBLE
-            binding.Login.isEnabled = false
+            showLoading(true)
 
             if (Patterns.EMAIL_ADDRESS.matcher(input).matches()) {
                 loginWithEmail(input, password)
@@ -59,54 +56,45 @@ class Login : AppCompatActivity() {
         }
 
         binding.Create.setOnClickListener {
-            val intent = Intent(this, Register::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Register::class.java))
         }
 
         binding.forgot.setOnClickListener {
-            val intent = Intent(this, Forgot::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Forgot::class.java))
         }
     }
 
-    // ✅ Fetch email from Firestore using username
+    // 🔹 Optimized Fetch Email from Username
     private fun getEmailFromUsername(username: String, password: String) {
         db.collection("users")
-            .whereEqualTo("username", username) // Query by username field
+            .whereEqualTo("username", username)
+            .limit(1) // Optimize query to return at most one document
             .get()
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
-                    val userDocument = documents.documents[0]
-                    val email = userDocument.getString("email")
-                    if (!email.isNullOrEmpty()) {
+                    documents.documents[0].getString("email")?.let { email ->
                         loginWithEmail(email, password)
-                    } else {
-                        showError("No email found for this username")
-                    }
+                    } ?: showError("No email found for this username")
                 } else {
                     showError("Username not found")
                 }
             }
             .addOnFailureListener {
-                showError("Failed to retrieve username")
+                showError("Error retrieving username. Check your connection.")
             }
     }
 
-    // ✅ Log in with Email and Password
+    // 🔹 Login with Email & Password
     private fun loginWithEmail(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
-                binding.progressBar.visibility = View.GONE
-                binding.Login.isEnabled = true
-
+                showLoading(false)
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    if (user != null) {
-                        if (user.isEmailVerified) {
-                            checkAdminStatus(user.uid)
-                        } else {
-                            showError("Verify your email first!")
-                        }
+                    if (user?.isEmailVerified == true) {
+                        checkAdminStatus(user.uid)
+                    } else {
+                        showError("Verify your email first!")
                     }
                 } else {
                     showError("Invalid credentials. Try again.")
@@ -114,24 +102,24 @@ class Login : AppCompatActivity() {
             }
     }
 
-    // ✅ Check if the user is an admin in Firestore
+    // 🔹 Check if User is Admin
     private fun checkAdminStatus(userId: String) {
         db.collection("admins").document(userId).get()
             .addOnSuccessListener { document ->
-                if (document.exists() && document.getString("role") == "admin") {
-                    startActivity(Intent(this, AdminActivity::class.java))
-                    finish()
+                val intent = if (document.exists() && document.getString("role") == "admin") {
+                    Intent(this, AdminActivity::class.java)
                 } else {
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                    Intent(this, MainActivity::class.java)
                 }
+                startActivity(intent)
+                finish()
             }
             .addOnFailureListener {
                 showError("Failed to check admin status")
             }
     }
 
-    // ✅ Check Internet Connection
+    // 🔹 Check Internet Connection
     private fun isInternetAvailable(): Boolean {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
@@ -139,10 +127,17 @@ class Login : AppCompatActivity() {
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
+    // 🔹 Show or Hide Loading State
+    private fun showLoading(show: Boolean) {
+        binding.progressBar.bringToFront()
+        binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
+        binding.dimBackground.visibility = if (show) View.VISIBLE else View.GONE
+        binding.Login.isEnabled = !show
+    }
+
+    // 🔹 Display Toast Error Message
     private fun showError(message: String) {
-        binding.progressBar.visibility = View.GONE
-        binding.dimBackground.visibility = View.GONE
-        binding.Login.isEnabled = true
+        showLoading(false)
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

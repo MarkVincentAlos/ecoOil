@@ -28,11 +28,12 @@ class TransactionAdapter(private val transactions: List<TransactionData>) :
         holder.timestampTextView.text = "Date: $formattedDate"
         holder.amountTextView.text = "Amount: ${transaction.amount}"
 
-        if (transaction.amount > 0) {
-            holder.pointsTextView.text = "Gained ${transaction.pointsEarned} points"
+        // Use transaction type to determine styling
+        if (transaction.type.lowercase() == "earned") {
+            holder.pointsTextView.text = "Earned ${transaction.pointsEarned} points"
             holder.iconImageView.setImageResource(R.drawable.green)
             holder.pointsTextView.setTextColor(holder.itemView.context.getColor(R.color.green))
-        } else {
+        } else { // "used"
             holder.pointsTextView.text = "Used ${transaction.pointsEarned} points"
             holder.iconImageView.setImageResource(R.drawable.red)
             holder.pointsTextView.setTextColor(holder.itemView.context.getColor(R.color.red))
