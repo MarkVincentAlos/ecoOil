@@ -54,26 +54,33 @@ class Home : Fragment() {
                 if (error != null) {
                     if (_binding != null) {
                         binding.pointsText.text = "Error loading points"
+                        binding.cName.text = "Error loading name"
                     }
                     return@addSnapshotListener
                 }
 
                 if (snapshot != null && snapshot.exists()) {
                     val points = snapshot.getLong("points") ?: 0
+                    val username = snapshot.getString("username") ?: "Unknown"
+
                     if (_binding != null) {
                         binding.pointsText.text = "Points: $points"
+                        binding.cName.text = username
                     }
                 } else {
-                    val newUser = hashMapOf("points" to 0)
+                    // If user document doesn't exist, create it with default values
+                    val newUser = hashMapOf("points" to 0, "username" to "New User")
                     userRef.set(newUser).addOnSuccessListener {
                         if (_binding != null) {
                             binding.pointsText.text = "Points: 0"
+                            binding.cName.text = "New User"
                         }
                     }
                 }
             }
         }
     }
+
 
 
     override fun onDestroyView() {

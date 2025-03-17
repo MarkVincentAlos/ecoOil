@@ -55,5 +55,6 @@
     <string name="send">send</string>
     <string name="go_to_admin_prices">Go to Admin Prices</string>
     <string name="go_back_to_admin_points">GO BACK TO ADMIN POINTS</string>
+    <string name="balance">Balance</string>
 
 </resources>
