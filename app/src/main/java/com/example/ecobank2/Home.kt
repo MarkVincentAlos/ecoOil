@@ -36,6 +36,10 @@ class Home : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        val fragment = DieselGas()
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.dieselGasContainer, fragment)
+            .commit()
 
         return binding.root
     }

@@ -15,6 +15,7 @@ class AdminActivity : AppCompatActivity() {
     private lateinit var amountInput: EditText
     private lateinit var transactionTypeSpinner: Spinner
     private lateinit var submitButton: Button
+    private lateinit var goButton: Button
 
     private val db = FirebaseFirestore.getInstance()
     private val userMap = mutableMapOf<String, String>() // Maps username -> userId
@@ -28,6 +29,7 @@ class AdminActivity : AppCompatActivity() {
         amountInput = findViewById(R.id.input_amount)
         transactionTypeSpinner = findViewById(R.id.input_type)
         submitButton = findViewById(R.id.btn_submit_transaction)
+        goButton = findViewById(R.id.goPrices)
 
         backButton.setOnClickListener {
             val intent = Intent(this, Login::class.java)
@@ -38,6 +40,10 @@ class AdminActivity : AppCompatActivity() {
         setupTransactionTypeSpinner()
 
         submitButton.setOnClickListener { submitTransaction() }
+        goButton.setOnClickListener {
+            val intent = Intent(this, AdminPrices::class.java)
+            startActivity(intent)
+        }
     }
 
     // Fetch usernames from Firestore and store their names & userIds
