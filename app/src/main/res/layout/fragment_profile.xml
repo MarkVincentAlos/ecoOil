@@ -84,7 +84,7 @@
             android:id="@+id/p_number2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
+            android:fontFamily="@font/akshar_medium"
             android:layout_marginTop="10dp"
             android:paddingStart="50dp"
             android:textSize="20sp"
