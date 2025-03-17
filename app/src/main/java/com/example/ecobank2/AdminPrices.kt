@@ -33,7 +33,7 @@ class AdminPrices : AppCompatActivity() {
         dieselIcon = findViewById(R.id.dieselIcon)
         gasolineIcon = findViewById(R.id.gasolineIcon)
 
-        // Set up the dropdown menus (spinners)
+        // Set up dropdown menus (spinners)
         setupSpinners()
 
         buttonSubmit.setOnClickListener {
@@ -60,13 +60,14 @@ class AdminPrices : AppCompatActivity() {
         val dieselChangeAmount = editTextDieselChange.text.toString().toDoubleOrNull()
         val gasolineChangeAmount = editTextGasolineChange.text.toString().toDoubleOrNull()
 
-        val dieselChange = spinnerDieselChange.selectedItem.toString()
-        val gasolineChange = spinnerGasolineChange.selectedItem.toString()
+        val dieselChangeType = spinnerDieselChange.selectedItem.toString()
+        val gasolineChangeType = spinnerGasolineChange.selectedItem.toString()
 
         if (dieselChangeAmount != null && gasolineChangeAmount != null &&
-            dieselChange != "Select Change" && gasolineChange != "Select Change") {
+            dieselChangeType != "Select Change" && gasolineChangeType != "Select Change") {
 
-            // Fetch current prices from Firestore
+            val timestamp = System.currentTimeMillis() // Get current time
+
             db.collection("prices").document("current_prices")
                 .get()
                 .addOnSuccessListener { document ->
@@ -74,38 +75,35 @@ class AdminPrices : AppCompatActivity() {
                         val currentDieselPrice = document.getDouble("diesel_price") ?: 0.0
                         val currentGasolinePrice = document.getDouble("gasoline_price") ?: 0.0
 
-                        // Calculate new prices
-                        val newDieselPrice = if (dieselChange == "Increase") {
-                            currentDieselPrice + dieselChangeAmount
-                        } else {
-                            currentDieselPrice - dieselChangeAmount
-                        }
+                        // Determine price changes (negative for decreases)
+                        val dieselChangeValue = if (dieselChangeType == "Increase") dieselChangeAmount else -dieselChangeAmount
+                        val gasolineChangeValue = if (gasolineChangeType == "Increase") gasolineChangeAmount else -gasolineChangeAmount
 
-                        val newGasolinePrice = if (gasolineChange == "Increase") {
-                            currentGasolinePrice + gasolineChangeAmount
-                        } else {
-                            currentGasolinePrice - gasolineChangeAmount
-                        }
+                        // Calculate new prices
+                        val newDieselPrice = currentDieselPrice + dieselChangeValue
+                        val newGasolinePrice = currentGasolinePrice + gasolineChangeValue
 
                         // Prepare updated price data
                         val pricesData = hashMapOf(
                             "diesel_price" to newDieselPrice,
                             "gasoline_price" to newGasolinePrice,
-                            "diesel_change" to if (dieselChange == "Increase") dieselChangeAmount else -dieselChangeAmount,
-                            "gasoline_change" to if (gasolineChange == "Increase") gasolineChangeAmount else -gasolineChangeAmount
+                            "diesel_change" to dieselChangeValue,  // Shows + for increase, - for decrease
+                            "gasoline_change" to gasolineChangeValue,
+                            "timestamp" to timestamp
                         )
 
-                        // Update Firestore
+                        // Update Firestore (overwrite current prices)
                         db.collection("prices").document("current_prices")
                             .set(pricesData)
                             .addOnSuccessListener {
                                 Toast.makeText(this, "Prices updated successfully", Toast.LENGTH_SHORT).show()
-                                updateIcons(dieselChange, gasolineChange)  // Ensure icons update
+                                updateIcons(dieselChangeType, gasolineChangeType)
                                 clearInputs()
                             }
                             .addOnFailureListener { e ->
                                 Toast.makeText(this, "Error updating prices: ${e.message}", Toast.LENGTH_SHORT).show()
                             }
+
                     } else {
                         Toast.makeText(this, "Current prices not found", Toast.LENGTH_SHORT).show()
                     }

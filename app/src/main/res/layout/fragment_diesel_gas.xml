@@ -28,10 +28,10 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:text="@string/diesel_price"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
             android:fontFamily="@font/akshar_medium"
-            android:textColor="#001F5B"
-            android:layout_marginEnd="8dp" />
+            android:textColor="#001F5B"/>
 
         <ImageView
             android:id="@+id/diesel_icon"
@@ -69,9 +69,9 @@
             android:layout_height="match_parent"
             android:text="@string/gasoline_price"
             android:fontFamily="@font/akshar_medium"
-            android:textSize="18sp"
-            android:textColor="#001F5B"
-            android:layout_marginEnd="8dp"/>
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:textColor="#001F5B"/>
 
         <ImageView
             android:id="@+id/gasoline_icon"
