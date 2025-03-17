@@ -13,13 +13,11 @@
     <string name="password">PASSWORD</string>
     <string name="remember">Remember me?</string>
     <string name="credit">•••• •••• •••• ••••</string>
-    <string name="phone">Phone number</string>
-    <string name="phone2">09XX - XXXX - YYYY</string>
     <string name="c_name">ABCDEFG H. IJKL</string>
     <string name="amount_balance">4000.00pts</string>
     <string name="p_profile">Profile</string>
     <string name="p_name">ABCDEFG H. IJKL</string>
-    <string name="p_number">Card number</string>
+    <string name="userID">User ID</string>
     <string name="p_number2">•••• •••• •••• ••••</string>
     <string name="p_email">Email address</string>
     <string name="p_email2">abcdefgh@gmail.com</string>
