@@ -1,13 +1,12 @@
 package com.example.ecobank2
 
-import android.content.Context
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -49,50 +48,85 @@ class DieselGas : Fragment() {
                     val dieselChange = document.getDouble("diesel_change") ?: 0.0
                     val gasolineChange = document.getDouble("gasoline_change") ?: 0.0
 
-                    // Update UI with latest prices
-                    binding.dieselPrice.text = "₱${"%.2f".format(dieselPrice)}"
-                    binding.gasolinePrice.text = "₱${"%.2f".format(gasolinePrice)}"
+                    // Update Diesel Price Digits
+                    updatePriceDigits(
+                        price = dieselPrice,
+                        digit1 = binding.dieselDigit1,
+                        digit2 = binding.dieselDigit2,
+                        digit3 = binding.dieselDigit3,
+                        digit4 = binding.dieselDigit4
+                    )
 
-                    // Update icons and text colors
-                    updatePriceChangeIcon(binding.dieselIcon, dieselChange)
-                    updatePriceChangeIcon(binding.gasolineIcon, gasolineChange)
+                    // Update Gasoline Price Digits
+                    updatePriceDigits(
+                        price = gasolinePrice,
+                        digit1 = binding.gasolineDigit1,
+                        digit2 = binding.gasolineDigit2,
+                        digit3 = binding.gasolineDigit3,
+                        digit4 = binding.gasolineDigit4
+                    )
 
-                    updatePriceTextColor(binding.dieselPrice, dieselChange)
-                    updatePriceTextColor(binding.gasolinePrice, gasolineChange)
+                    // Update Diesel Icon & Change Text with Color
+                    updatePriceChange(binding.dieselIcon, binding.dieselChangeText, dieselChange)
+
+                    // Update Gasoline Icon & Change Text with Color
+                    updatePriceChange(binding.gasolineIcon, binding.gasolineChangeText, gasolineChange)
                 } else {
                     Log.e("DieselGasFragment", "No price data found.")
                 }
             }
     }
 
-    private fun updatePriceChangeIcon(iconView: View, priceChange: Double) {
-        Log.d("DieselGasFragment", "Updating icon: Price Change = $priceChange")
+    private fun updatePriceDigits(
+        price: Double,
+        digit1: TextView,
+        digit2: TextView,
+        digit3: TextView,
+        digit4: TextView
+    ) {
+        val formattedPrice = "%.2f".format(price) // Example: "45.89"
 
-        val iconDrawable: Drawable? = when {
-            priceChange > 0 -> ContextCompat.getDrawable(requireContext(), R.drawable.increase) // Increase icon
-            priceChange < 0 -> ContextCompat.getDrawable(requireContext(), R.drawable.decrease) // Decrease icon
-            else -> null // No change, hide icon
-        }
-
-        (iconView as? android.widget.ImageView)?.apply {
-            setImageDrawable(iconDrawable)
-            visibility = if (iconDrawable != null) View.VISIBLE else View.GONE
+        if (formattedPrice.length == 5) { // Ensure proper formatting
+            digit1.text = formattedPrice[0].toString() // First digit
+            digit2.text = formattedPrice[1].toString() // Second digit
+            digit3.text = formattedPrice[3].toString() // Third digit (after dot)
+            digit4.text = formattedPrice[4].toString() // Fourth digit (after dot)
         }
     }
 
-    private fun updatePriceTextColor(priceTextView: TextView, priceChange: Double) {
-        val context: Context = priceTextView.context
-        val color = when {
-            priceChange > 0 -> ContextCompat.getColor(context, R.color.green) // Increase -> Green
-            priceChange < 0 -> ContextCompat.getColor(context, R.color.red)   // Decrease -> Red
-            else -> Color.BLACK // No change -> Black
+    private fun updatePriceChange(iconView: ImageView, changeTextView: TextView, priceChange: Double) {
+        val context = requireContext() // Get the context for using ContextCompat
+
+        // Set icon based on price change
+        val iconDrawable: Drawable? = when {
+            priceChange > 0 -> ContextCompat.getDrawable(context, R.drawable.increase)
+            priceChange < 0 -> ContextCompat.getDrawable(context, R.drawable.decrease)
+            else -> null
         }
-        priceTextView.setTextColor(color)
+        iconView.setImageDrawable(iconDrawable)
+        iconView.visibility = if (iconDrawable != null) View.VISIBLE else View.GONE
+
+        // Set the price change text
+        if (priceChange != 0.0) {
+            val sign = if (priceChange > 0) "+" else "" // Add "+" if increase
+            changeTextView.text = String.format("%s%.2f", sign, priceChange)
+
+            // Change text color based on increase/decrease
+            val textColor = when {
+                priceChange > 0 -> ContextCompat.getColor(context, R.color.green)  // 🟢 Green for increase
+                priceChange < 0 -> ContextCompat.getColor(context, R.color.red)    // 🔴 Red for decrease
+                else -> ContextCompat.getColor(context, R.color.black)              // ⚪ Gray for no change
+            }
+            changeTextView.setTextColor(textColor)
+            changeTextView.visibility = View.VISIBLE
+        } else {
+            changeTextView.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        priceListener?.remove() // Remove Firestore listener to prevent memory leaks
         _binding = null
-        priceListener?.remove() // Prevent memory leaks
     }
 }
