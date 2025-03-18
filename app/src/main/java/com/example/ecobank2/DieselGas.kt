@@ -43,34 +43,32 @@ class DieselGas : Fragment() {
                 }
 
                 if (document != null && document.exists()) {
-                    val dieselPrice = document.getDouble("diesel_price") ?: 0.0
-                    val gasolinePrice = document.getDouble("gasoline_price") ?: 0.0
                     val dieselChange = document.getDouble("diesel_change") ?: 0.0
                     val gasolineChange = document.getDouble("gasoline_change") ?: 0.0
 
-                    // Update Diesel Price Digits
+                    // Update Diesel Price Change Digits
                     updatePriceDigits(
-                        price = dieselPrice,
+                        change = dieselChange,
                         digit1 = binding.dieselDigit1,
                         digit2 = binding.dieselDigit2,
                         digit3 = binding.dieselDigit3,
                         digit4 = binding.dieselDigit4
                     )
 
-                    // Update Gasoline Price Digits
+                    // Update Gasoline Price Change Digits
                     updatePriceDigits(
-                        price = gasolinePrice,
+                        change = gasolineChange,
                         digit1 = binding.gasolineDigit1,
                         digit2 = binding.gasolineDigit2,
                         digit3 = binding.gasolineDigit3,
                         digit4 = binding.gasolineDigit4
                     )
 
-                    // Update Diesel Icon & Change Text with Color
-                    updatePriceChange(binding.dieselIcon, binding.dieselChangeText, dieselChange)
+                    // Update Diesel Icon
+                    updatePriceIcon(binding.dieselIcon, dieselChange)
 
-                    // Update Gasoline Icon & Change Text with Color
-                    updatePriceChange(binding.gasolineIcon, binding.gasolineChangeText, gasolineChange)
+                    // Update Gasoline Icon
+                    updatePriceIcon(binding.gasolineIcon, gasolineChange)
                 } else {
                     Log.e("DieselGasFragment", "No price data found.")
                 }
@@ -78,23 +76,22 @@ class DieselGas : Fragment() {
     }
 
     private fun updatePriceDigits(
-        price: Double,
+        change: Double,
         digit1: TextView,
         digit2: TextView,
         digit3: TextView,
         digit4: TextView
     ) {
-        val formattedPrice = "%.2f".format(price) // Example: "45.89"
+        val formattedChange = "%.2f".format(change).replace("+", "").replace("-", "") // Ensure two decimal places
+        val cleanChange = formattedChange.padStart(5, '0') // Ensure it has at least 5 characters
 
-        if (formattedPrice.length == 5) { // Ensure proper formatting
-            digit1.text = formattedPrice[0].toString() // First digit
-            digit2.text = formattedPrice[1].toString() // Second digit
-            digit3.text = formattedPrice[3].toString() // Third digit (after dot)
-            digit4.text = formattedPrice[4].toString() // Fourth digit (after dot)
-        }
+        digit1.text = cleanChange[0].toString() // First digit
+        digit2.text = cleanChange[1].toString() // Second digit
+        digit3.text = cleanChange[3].toString() // Third digit (after dot)
+        digit4.text = cleanChange[4].toString() // Fourth digit (after dot)
     }
 
-    private fun updatePriceChange(iconView: ImageView, changeTextView: TextView, priceChange: Double) {
+    private fun updatePriceIcon(iconView: ImageView, priceChange: Double) {
         val context = requireContext() // Get the context for using ContextCompat
 
         // Set icon based on price change
@@ -105,23 +102,6 @@ class DieselGas : Fragment() {
         }
         iconView.setImageDrawable(iconDrawable)
         iconView.visibility = if (iconDrawable != null) View.VISIBLE else View.GONE
-
-        // Set the price change text
-        if (priceChange != 0.0) {
-            val sign = if (priceChange > 0) "+" else "" // Add "+" if increase
-            changeTextView.text = String.format("%s%.2f", sign, priceChange)
-
-            // Change text color based on increase/decrease
-            val textColor = when {
-                priceChange > 0 -> ContextCompat.getColor(context, R.color.green)  // 🟢 Green for increase
-                priceChange < 0 -> ContextCompat.getColor(context, R.color.red)    // 🔴 Red for decrease
-                else -> ContextCompat.getColor(context, R.color.black)              // ⚪ Gray for no change
-            }
-            changeTextView.setTextColor(textColor)
-            changeTextView.visibility = View.VISIBLE
-        } else {
-            changeTextView.visibility = View.GONE
-        }
     }
 
     override fun onDestroyView() {

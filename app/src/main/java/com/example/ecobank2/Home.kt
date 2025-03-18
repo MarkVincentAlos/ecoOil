@@ -20,6 +20,8 @@ class Home : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        binding.gostation.bringToFront()
+
         loadUserPoints()
         binding.pointsText.setOnClickListener {
             val fragment = Qrr()
@@ -64,8 +66,8 @@ class Home : Fragment() {
                     val username = snapshot.getString("username") ?: "Unknown"
 
                     if (_binding != null) {
-                        binding.pointsText.text = "Points: $points"
-                        binding.cName.text = username
+                        binding.pointsText.text = "$points points"
+                        binding.cName.text = "Welcome back, $username"
                     }
                 } else {
                     // If user document doesn't exist, create it with default values
@@ -73,7 +75,7 @@ class Home : Fragment() {
                     userRef.set(newUser).addOnSuccessListener {
                         if (_binding != null) {
                             binding.pointsText.text = "Points: 0"
-                            binding.cName.text = "New User"
+                            binding.cName.text = "Welcome, New User"
                         }
                     }
                 }

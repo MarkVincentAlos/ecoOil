@@ -43,7 +43,7 @@
 
                 <TextView android:id="@+id/diesel_digit_1" style="@style/PriceDigit"/>
                 <TextView android:id="@+id/diesel_digit_2" style="@style/PriceDigit"/>
-                <TextView android:id="@+id/diesel_dot" style="@style/PriceDigit" android:text="."/>
+                <TextView android:id="@+id/diesel_dot" style="@style/PriceDigit" android:text="." android:textColor="@color/black"/>
                 <TextView android:id="@+id/diesel_digit_3" style="@style/PriceDigit"/>
                 <TextView android:id="@+id/diesel_digit_4" style="@style/PriceDigit"/>
             </LinearLayout>
@@ -64,16 +64,14 @@
                     android:visibility="gone"/>
 
                 <!-- Diesel Price Change Text -->
-                <TextView
-                    android:id="@+id/diesel_change_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:visibility="gone"/>
             </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/darkgrey"
+            android:layout_margin="10dp"/>
 
         <!-- Gasoline Row -->
         <LinearLayout
@@ -105,7 +103,7 @@
 
                 <TextView android:id="@+id/gasoline_digit_1" style="@style/PriceDigit"/>
                 <TextView android:id="@+id/gasoline_digit_2" style="@style/PriceDigit"/>
-                <TextView android:id="@+id/gasoline_dot" style="@style/PriceDigit" android:text="."/>
+                <TextView android:id="@+id/gasoline_dot" style="@style/PriceDigit" android:text="." android:textColor="@color/black"/>
                 <TextView android:id="@+id/gasoline_digit_3" style="@style/PriceDigit"/>
                 <TextView android:id="@+id/gasoline_digit_4" style="@style/PriceDigit"/>
             </LinearLayout>
@@ -126,14 +124,6 @@
                     android:visibility="gone"/>
 
                 <!-- Gasoline Price Change Text -->
-                <TextView
-                    android:id="@+id/gasoline_change_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:visibility="gone"/>
             </LinearLayout>
         </LinearLayout>
 

@@ -8,14 +8,25 @@
     tools:context=".Home"
     android:padding="16dp">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/c_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="16dp"
+            android:text="@string/c_name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/akshar_medium" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
@@ -30,13 +41,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/background" />
+                    android:src="@drawable/prot" />
 
                 <TextView
                     android:id="@+id/l_balance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="20dp"
                     android:text="@string/balance"
                     android:textColor="@color/white"
                     android:textSize="20sp"
@@ -50,19 +61,8 @@
                     android:layout_centerInParent="true"
                     android:text="Points: 0"
                     android:textColor="@color/white"
-                    android:textSize="32sp"
+                    android:textSize="23sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/akshar_medium" />
-
-                <TextView
-                    android:id="@+id/c_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_margin="16dp"
-                    android:text="@string/c_name"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
                     android:fontFamily="@font/akshar_medium" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -76,7 +76,7 @@
             <FrameLayout
                 android:id="@+id/dieselGasContainer"
                 android:layout_width="match_parent"
-                android:layout_height="140dp" />
+                android:layout_height="160dp" />
 
 
         </LinearLayout>
@@ -88,39 +88,29 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+                <ImageButton
+                    android:id="@+id/gostation"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/sations"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/stations"
-                        android:textSize="18sp" />
-
-                    <ImageButton
-                        android:id="@+id/gostation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/go" />
-                </LinearLayout>
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="7dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/go" />
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/mapViewStations"
                     android:name="com.example.ecobank2.Stations"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </LinearLayout>
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
