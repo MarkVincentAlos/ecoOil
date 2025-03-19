@@ -26,6 +26,8 @@ firebaseStorage = "21.0.1"
 firebasePerf = "21.0.4"
 googleFirebaseFirebasePerf = "1.4.2"
 playServicesLocation = "21.3.0"
+firebaseMessaging = "24.1.0"
+volley = "1.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,6 +53,8 @@ firebase-perf = { group = "com.google.firebase", name = "firebase-perf", version
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 zxing-core = { module = "com.google.zxing:core", version = "3.5.2" }
 zxing-android = { module = "com.journeyapps:zxing-android-embedded", version = "4.3.0" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

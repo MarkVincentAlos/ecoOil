@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
@@ -12,7 +13,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ecobank2.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.messaging.FirebaseMessaging
 
 class Login : AppCompatActivity() {
 
@@ -64,7 +68,7 @@ class Login : AppCompatActivity() {
         }
     }
 
-    // 🔹 Optimized Fetch Email from Username
+    // 🔹 Fetch Email from Username (Handles Non-Existent Username)
     private fun getEmailFromUsername(username: String, password: String) {
         db.collection("users")
             .whereEqualTo("username", username)
@@ -72,11 +76,14 @@ class Login : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
-                    documents.documents[0].getString("email")?.let { email ->
+                    val email = documents.documents[0].getString("email")
+                    if (email != null) {
                         loginWithEmail(email, password)
-                    } ?: showError("No email found for this username")
+                    } else {
+                        showError("No email found for this username")
+                    }
                 } else {
-                    showError("Username not found")
+                    showError("Incorrect username. Please try again.")
                 }
             }
             .addOnFailureListener {
@@ -84,7 +91,7 @@ class Login : AppCompatActivity() {
             }
     }
 
-    // 🔹 Login with Email & Password
+    // 🔹 Login with Email & Password (Handles Incorrect Password)
     private fun loginWithEmail(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -97,7 +104,16 @@ class Login : AppCompatActivity() {
                         showError("Verify your email first!")
                     }
                 } else {
-                    showError("Invalid credentials. Try again.")
+                    // Handling incorrect credentials
+                    try {
+                        throw task.exception ?: Exception("Invalid credentials. Try again.")
+                    } catch (e: FirebaseAuthInvalidUserException) {
+                        showError("Email not found. Please register first.")
+                    } catch (e: FirebaseAuthInvalidCredentialsException) {
+                        showError("Incorrect password. Please try again.")
+                    } catch (e: Exception) {
+                        showError("Login failed. Check your credentials and try again.")
+                    }
                 }
             }
     }
@@ -139,5 +155,15 @@ class Login : AppCompatActivity() {
     private fun showError(message: String) {
         showLoading(false)
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val token = task.result
+                    Log.d("FCM", "User FCM Token: $token")
+                } else {
+                    Log.e("FCM", "Fetching FCM token failed", task.exception)
+                }
+            }
     }
 }

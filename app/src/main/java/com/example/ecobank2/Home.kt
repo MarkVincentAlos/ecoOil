@@ -1,9 +1,15 @@
 package com.example.ecobank2
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.ecobank2.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -13,6 +19,7 @@ class Home : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val NOTIFICATION_PERMISSION_CODE = 101
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,8 +28,8 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.gostation.bringToFront()
-
         loadUserPoints()
+
         binding.pointsText.setOnClickListener {
             val fragment = Qrr()
             parentFragmentManager.beginTransaction()
@@ -31,13 +38,14 @@ class Home : Fragment() {
                 .commit()
         }
 
-        binding.gostation.setOnClickListener{
+        binding.gostation.setOnClickListener {
             val fragment = Stations()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)
                 .commit()
         }
+
         val fragment = DieselGas()
         parentFragmentManager.beginTransaction()
             .replace(R.id.dieselGasContainer, fragment)
@@ -74,7 +82,7 @@ class Home : Fragment() {
                     val newUser = hashMapOf("points" to 0, "username" to "New User")
                     userRef.set(newUser).addOnSuccessListener {
                         if (_binding != null) {
-                            binding.pointsText.text = "Points: 0"
+                            binding.pointsText.text = "0 points"
                             binding.cName.text = "Welcome, New User"
                         }
                     }
@@ -82,8 +90,6 @@ class Home : Fragment() {
             }
         }
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()
