@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Stations">
 
+    <!-- Full-Screen Map -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapViewStations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Search Bar -->
     <AutoCompleteTextView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
@@ -14,14 +21,11 @@
         android:fontFamily="@font/akshar_medium"
         android:background="@android:drawable/editbox_background"
         android:textSize="16sp"
-        android:drawableStart="@android:drawable/ic_menu_search" />
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:layout_margin="10dp"
+        android:elevation="4dp" />
 
-    <org.osmdroid.views.MapView
-        android:id="@+id/mapViewStations"
-        android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
-        android:layout_height="match_parent" />
-
+    <!-- Floating Action Button (Refresh) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/refresh"
         android:layout_width="wrap_content"
@@ -29,15 +33,18 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:contentDescription="@string/refresh_location"
-        app:srcCompat="@android:drawable/ic_menu_mylocation"/>
+        app:srcCompat="@android:drawable/ic_menu_mylocation"
+        android:elevation="6dp" />
 
+    <!-- Distance Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="190dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="8dp"
         app:cardElevation="10dp">
+
         <TextView
             android:id="@+id/distanceTextView"
             android:layout_width="match_parent"
@@ -46,11 +53,10 @@
             android:textSize="16sp"
             android:textColor="@android:color/black"
             android:fontFamily="@font/akshar_medium"
-            android:layout_margin="5dp"
+            android:padding="8dp"
             android:background="@color/trans"
             android:visibility="gone"
-            android:layout_gravity="center_vertical"/>
-
+            android:gravity="center"/>
     </androidx.cardview.widget.CardView>
 
 </FrameLayout>

@@ -32,43 +32,6 @@
             android:textStyle="bold"/>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_margin="20dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="@font/akshar_medium"
-            android:text="transaction notification"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-
-        <Switch
-            android:id="@+id/transactionnotify"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/qr"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/akshar_medium"
-        android:textColor="@color/black"
-        android:text="@string/qr"
-        android:textSize="20sp" />
 
     <View
         android:layout_width="match_parent"

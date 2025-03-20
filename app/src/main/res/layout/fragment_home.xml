@@ -100,8 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_margin="10dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/go" />
 
@@ -109,7 +108,11 @@
                     android:id="@+id/mapViewStations"
                     android:name="com.example.ecobank2.Stations"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
