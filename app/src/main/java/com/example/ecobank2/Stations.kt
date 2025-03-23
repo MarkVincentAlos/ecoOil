@@ -251,25 +251,18 @@ class Stations : Fragment() {
 
 
     private fun moveCameraToStation(lat: Double, lon: Double) {
-        val geoPoint = GeoPoint(lat, lon)
-        mapViewStations?.controller?.setCenter(geoPoint)
-        mapViewStations?.controller?.setZoom(18.0) // Zoom in
+        val stationGeoPoint = GeoPoint(lat, lon)
+        lastSelectedStation = Station("Selected Station", lat, lon)
 
-        // Calculate distance from current location
         val userLocation = userMarker?.position
         if (userLocation != null) {
-            val results = FloatArray(1)
-            Location.distanceBetween(
-                userLocation.latitude, userLocation.longitude, // Current location
-                lat, lon, // Selected station
-                results
-            )
-
-            val distanceInKm = results[0] / 1000 // Convert meters to kilometers
-            distanceTextView.text = "Distance: %.2f km".format(distanceInKm)
-            distanceTextView.visibility = View.VISIBLE
+            showBothLocations(userLocation, stationGeoPoint)
+            drawRoute(userLocation.latitude, userLocation.longitude, lat, lon)
+        } else {
+            mapViewStations?.controller?.setCenter(stationGeoPoint)
         }
     }
+
 
 
     @SuppressLint("MissingPermission")
@@ -318,11 +311,18 @@ class Stations : Fragment() {
             mapViewStations?.controller?.setCenter(newGeoPoint)
         }
 
-        // If a station is selected, update the route
+        // Ensure both markers are visible
         lastSelectedStation?.let {
+            showBothLocations(newGeoPoint, GeoPoint(it.lat, it.lon))
             drawRoute(location.latitude, location.longitude, it.lat, it.lon)
         }
     }
+    private fun showBothLocations(userLocation: GeoPoint, stationLocation: GeoPoint) {
+        val boundingBox = org.osmdroid.util.BoundingBox.fromGeoPoints(listOf(userLocation, stationLocation))
+        mapViewStations?.zoomToBoundingBox(boundingBox, true)
+    }
+
+
 
 
     private fun addMarker(lat: Double, lon: Double, title: String) {
