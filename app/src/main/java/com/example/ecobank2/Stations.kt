@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -134,6 +135,10 @@ class Stations : Fragment() {
         val fabRefresh = view.findViewById<FloatingActionButton>(R.id.refresh)
         fabRefresh.setOnClickListener { refreshUserLocation() }
 
+        val btnFindNearest = view.findViewById<Button>(R.id.btnFindNearest)
+        btnFindNearest.setOnClickListener { findNearestStation() }
+
+
         setupMap()
         setupSearch()
         addEcoOilStations()
@@ -210,7 +215,12 @@ class Stations : Fragment() {
                     }
 
                     Log.d("RouteInfo", "Distance: $distanceText")
-                    distanceTextView.text = "Distance: $distanceText"
+
+                    // Ensure UI update happens on the main thread
+                    activity?.runOnUiThread {
+                        distanceTextView.text = "Distance: $distanceText"
+                        distanceTextView.visibility = View.VISIBLE // Make sure it's visible
+                    }
 
                     val routePoints = mutableListOf<GeoPoint>()
                     for (i in 0 until coordinates.length()) {
@@ -228,6 +238,35 @@ class Stations : Fragment() {
 
         Volley.newRequestQueue(requireContext()).add(request)
     }
+    private fun findNearestStation() {
+        val userLocation = userMarker?.position
+        if (userLocation == null) {
+            Log.e("NearestStation", "User location is not available")
+            return
+        }
+
+        var nearestStation: Station? = null
+        var minDistance = Double.MAX_VALUE
+
+        for (station in ecoOilStations) {
+            val stationLocation = GeoPoint(station.lat, station.lon)
+            val distance = userLocation.distanceToAsDouble(stationLocation)
+
+            if (distance < minDistance) {
+                minDistance = distance
+                nearestStation = station
+            }
+        }
+
+        nearestStation?.let {
+            lastSelectedStation = it
+            moveCameraToStation(it.lat, it.lon)
+            clearRoutes()
+            drawRoute(userLocation.latitude, userLocation.longitude, it.lat, it.lon)
+        }
+    }
+
+
 
 
 
@@ -262,6 +301,7 @@ class Stations : Fragment() {
             mapViewStations?.controller?.setCenter(stationGeoPoint)
         }
     }
+
 
 
 
