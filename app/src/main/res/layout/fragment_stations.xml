@@ -15,11 +15,10 @@
     <AutoCompleteTextView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:hint="Search for a station"
-        android:padding="10dp"
         android:fontFamily="@font/akshar_medium"
-        android:background="@android:drawable/editbox_background"
+        android:background="@color/trans"
         android:textSize="16sp"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:layout_margin="10dp"

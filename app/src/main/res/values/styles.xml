@@ -10,5 +10,9 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/akshar_medium</item>
     </style>
+    <style name="TextAppearance.CustomHint" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/akshar_medium</item>
+        <item name="android:textColorHint">@color/black</item>
+    </style>
 
 </resources>

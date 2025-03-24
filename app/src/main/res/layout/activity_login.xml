@@ -48,6 +48,7 @@
             android:layout_marginTop="10dp"
             android:hint="@string/email2"
             app:boxBackgroundColor="@color/white"
+            app:hintTextAppearance="@style/TextAppearance.CustomHint"
             app:startIconDrawable="@drawable/user">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -55,35 +56,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:gravity="start"
+                android:fontFamily="@font/akshar_medium"
+                android:gravity="left"
                 android:inputType="text"
                 android:paddingStart="40dp"
                 android:paddingEnd="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/akshar_medium"/>
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Password"
+            android:hint="@string/password"
             app:boxBackgroundColor="@color/white"
             app:startIconDrawable="@drawable/lock"
+            app:hintTextAppearance="@style/TextAppearance.CustomHint"
             app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Pass2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="40dp"
+                android:background="@color/white"
+                android:fontFamily="@font/akshar_medium"
                 android:gravity="left"
+                android:inputType="textPassword"
+                android:paddingStart="40dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:background="@color/white"
-                android:inputType="textPassword"
-                android:fontFamily="@font/akshar_medium"/>
+                android:textColorHint="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
