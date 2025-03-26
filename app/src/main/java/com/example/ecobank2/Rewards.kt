@@ -1,59 +1,61 @@
 package com.example.ecobank2
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Rewards.newInstance] factory method to
- * create an instance of this fragment.
- */
+import android.widget.ListView
+import android.widget.SimpleAdapter
+import androidx.fragment.app.Fragment
+import com.example.ecobank.R
+import java.util.ArrayList
+import java.util.HashMap
 class Rewards : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var rewardsListView: ListView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rewards, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_rewards, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment rewards.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Rewards().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        // Initialize ListView
+        rewardsListView = view.findViewById(R.id.rewards_listview)
+
+        // Create a list of rewards with hardcoded data
+        val rewardList = ArrayList<HashMap<String, String>>()
+
+        // Example 1: 50 Points for a 100 pesos voucher for free gas
+        val reward1 = HashMap<String, String>()
+        reward1["title"] = "Free Gas Voucher"
+        reward1["points"] = "50 Points"
+        reward1["description"] = "Voucher worth 100 pesos for free gas"
+        rewardList.add(reward1)
+
+        // Example 2: 100 Points for a 200 pesos shopping voucher
+        val reward2 = HashMap<String, String>()
+        reward2["title"] = "Get SHOEI Helmet"
+        reward2["points"] = "1000 Points"
+        reward2["description"] = "Grab a SHOEI Helmet just for 1000 points"
+        rewardList.add(reward2)
+
+        // Example 3: 200 Points for a 500 pesos restaurant voucher
+        val reward3 = HashMap<String, String>()
+        reward3["title"] = "FilOil Ticket"
+        reward3["points"] = "200 Points"
+        reward3["description"] = "Grab a ticket to wtach your favorite sports at FilOil Arena"
+        rewardList.add(reward3)
+
+        // Set up the adapter for the ListView
+        val from = arrayOf("title", "points", "description")
+        val to = intArrayOf(R.id.reward_title, R.id.reward_points, R.id.reward_description)
+        val adapter = SimpleAdapter(requireContext(), rewardList, R.layout.reward_list_item, from, to)
+
+        // Set the adapter for the ListView
+        rewardsListView.adapter = adapter
+
+        return view
     }
 }
