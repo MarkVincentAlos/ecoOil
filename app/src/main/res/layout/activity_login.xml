@@ -128,19 +128,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
+
             <Button
                 android:id="@+id/Create"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:backgroundTint="#F44336"
-                android:text="@string/create"
                 android:fontFamily="@font/akshar_medium"
+                android:text="@string/create"
                 android:textColor="@color/white"
                 android:textSize="10sp"
-                android:layout_weight="1"
                 android:textStyle="bold" />
+
             <Space
                 android:layout_width="15dp"
                 android:layout_height="match_parent" />
@@ -161,7 +163,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
     <View
         android:id="@+id/dimBackground"
         android:layout_width="match_parent"

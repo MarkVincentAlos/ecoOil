@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,57 +14,51 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Rewards Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/rewards"
             android:fontFamily="@font/akshar_medium"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textAlignment="center"
-            android:text="Rewards" />
+            android:textAlignment="center" />
 
-        <androidx.cardview.widget.CardView
-            android:visibility="invisible"
+        <!-- User Points Display (Without CardView) -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="3dp"
+            android:orientation="horizontal"
+            android:padding="15dp"
             android:layout_marginTop="20dp"
-            android:padding="20dp">
+            android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/reward_points"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:text="@string/you_have_0_points"
+                android:textColor="@color/black"
+                android:fontFamily="@font/akshar_medium"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/reward_points"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:text="You have 500 Points"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:drawableLeftCompat="@drawable/ecooil" />
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
+        <!-- Available Rewards Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:text="Available Rewards"
+            android:text="@string/available_rewards"
+            android:fontFamily="@font/akshar_medium"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="30dp" />
 
-        <!-- ListView to display rewards -->
-        <ListView
+        <!-- ListView to Display Rewards -->
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rewards_listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

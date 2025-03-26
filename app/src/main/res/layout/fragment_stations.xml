@@ -16,7 +16,7 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:hint="Search for a station"
+        android:hint="@string/search_for_a_station"
         android:fontFamily="@font/akshar_medium"
         android:background="@color/trans"
         android:textSize="16sp"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="@string/find_nearest_station"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/turt"
         android:layout_gravity="bottom|center_horizontal"/>
 
 </FrameLayout>

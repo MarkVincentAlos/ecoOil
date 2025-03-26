@@ -57,5 +57,13 @@
     <string name="go_back_to_admin_points">GO BACK TO ADMIN POINTS</string>
     <string name="balance">Balance</string>
     <string name="find_nearest_station">Find Nearest Station</string>
+    <string name="search_for_a_station">Search for a station</string>
+    <string name="exit"><u>EXIT</u></string>
+    <string name="description_of_the_reward_goes_here">Description of the reward goes here.</string>
+    <string name="_50_points">50 Points</string>
+    <string name="reward_title">Reward Title</string>
+    <string name="rewards">Rewards</string>
+    <string name="available_rewards">Available Rewards</string>
+    <string name="you_have_0_points">You have 0 Points</string>
 
 </resources>

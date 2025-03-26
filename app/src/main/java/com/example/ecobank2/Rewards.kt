@@ -4,58 +4,76 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
-import android.widget.SimpleAdapter
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.ecobank.R
-import java.util.ArrayList
-import java.util.HashMap
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+
 class Rewards : Fragment() {
 
-    private lateinit var rewardsListView: ListView
+    private lateinit var rewardPointsTextView: TextView
+    private lateinit var rewardsListView: RecyclerView
+    private lateinit var rewardAdapter: RewardAdapter
+    private val rewardList = mutableListOf<RewardData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_rewards, container, false)
 
-        // Initialize ListView
+        // Initialize views
+        rewardPointsTextView = view.findViewById(R.id.reward_points)
         rewardsListView = view.findViewById(R.id.rewards_listview)
 
-        // Create a list of rewards with hardcoded data
-        val rewardList = ArrayList<HashMap<String, String>>()
+        // Set up RecyclerView
+        rewardsListView.layoutManager = LinearLayoutManager(requireContext())
+        rewardAdapter = RewardAdapter(requireContext(), rewardList)
+        rewardsListView.adapter = rewardAdapter
 
-        // Example 1: 50 Points for a 100 pesos voucher for free gas
-        val reward1 = HashMap<String, String>()
-        reward1["title"] = "Free Gas Voucher"
-        reward1["points"] = "50 Points"
-        reward1["description"] = "Voucher worth 100 pesos for free gas"
-        rewardList.add(reward1)
-
-        // Example 2: 100 Points for a 200 pesos shopping voucher
-        val reward2 = HashMap<String, String>()
-        reward2["title"] = "Get SHOEI Helmet"
-        reward2["points"] = "1000 Points"
-        reward2["description"] = "Grab a SHOEI Helmet just for 1000 points"
-        rewardList.add(reward2)
-
-        // Example 3: 200 Points for a 500 pesos restaurant voucher
-        val reward3 = HashMap<String, String>()
-        reward3["title"] = "FilOil Ticket"
-        reward3["points"] = "200 Points"
-        reward3["description"] = "Grab a ticket to wtach your favorite sports at FilOil Arena"
-        rewardList.add(reward3)
-
-        // Set up the adapter for the ListView
-        val from = arrayOf("title", "points", "description")
-        val to = intArrayOf(R.id.reward_title, R.id.reward_points, R.id.reward_description)
-        val adapter = SimpleAdapter(requireContext(), rewardList, R.layout.reward_list_item, from, to)
-
-        // Set the adapter for the ListView
-        rewardsListView.adapter = adapter
+        // Fetch user points & rewards
+        fetchUserPoints()
+        fetchRewards()
 
         return view
+    }
+
+    private fun fetchUserPoints() {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+        val db = FirebaseFirestore.getInstance()
+
+        // Listen for real-time updates on points
+        db.collection("users").document(userId)
+            .addSnapshotListener { document, _ ->
+                if (document != null && document.exists()) {
+                    val points = document.getLong("points") ?: 0
+                    rewardPointsTextView.text = "You have $points Points"
+                }
+            }
+    }
+
+    private fun fetchRewards() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("rewards")
+            .get()
+            .addOnSuccessListener { documents ->
+                rewardList.clear()
+                for (document in documents) {
+                    val reward = RewardData(
+                        id = document.id,
+                        title = document.getString("title") ?: "",
+                        description = document.getString("description") ?: "",
+                        points = document.getLong("points")?.toInt() ?: 0
+                    )
+                    rewardList.add(reward)
+                }
+                rewardAdapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to load rewards.", Toast.LENGTH_SHORT).show()
+            }
     }
 }
