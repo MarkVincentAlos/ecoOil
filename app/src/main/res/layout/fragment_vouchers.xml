@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vouchers"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:fontFamily="@font/akshar_medium"
+        android:textColor="@color/black"/>
+
+    <!-- Progress Bar for Loading Indicator -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:indeterminate="true"/>
+
+    <!-- RecyclerView for Displaying Vouchers -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/voucherRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:scrollbars="vertical"/>
+</LinearLayout>

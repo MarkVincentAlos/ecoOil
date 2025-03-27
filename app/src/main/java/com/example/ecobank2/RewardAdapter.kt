@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -49,7 +50,7 @@ class RewardAdapter(
 
         // Claim Button
         builder.setPositiveButton("Claim") { _, _ ->
-            claimReward(reward.points)
+            claimReward(reward)
         }
 
         // Cancel Button
@@ -61,26 +62,46 @@ class RewardAdapter(
         dialog.show()
     }
 
-    private fun claimReward(rewardPoints: Int) {
+    private fun claimReward(reward: RewardData) {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
         val db = FirebaseFirestore.getInstance()
 
-        // Get user's current points
+        // Get user's current points and username
         db.collection("users").document(userId)
             .get()
             .addOnSuccessListener { document ->
                 if (document.exists()) {
                     val userPoints = document.getLong("points") ?: 0
+                    val username = document.getString("username") ?: "Unknown"
 
-                    if (userPoints >= rewardPoints) {
-                        // Calculate new points after claiming the reward
-                        val newPoints = userPoints - rewardPoints
+                    if (userPoints >= reward.points) {
+                        val newPoints = userPoints - reward.points
 
-                        // Update Firestore
+                        // Update Firestore (deduct points)
                         db.collection("users").document(userId)
                             .update("points", newPoints)
                             .addOnSuccessListener {
-                                Toast.makeText(context, "Reward Claimed! Remaining Points: $newPoints", Toast.LENGTH_SHORT).show()
+                                // Create a new Timestamp object for current time
+                                val timestamp = Timestamp.now()  // Correct way to get current time
+
+                                // Store voucher in 'vouchers' collection
+                                val voucherData = hashMapOf(
+                                    "userId" to userId,
+                                    "username" to username,
+                                    "rewardTitle" to reward.title,
+                                    "rewardPoints" to reward.points,
+                                    "timestamp" to timestamp,  // Correct Timestamp field
+                                    "used" to false // Mark voucher as unused initially
+                                )
+
+                                // Add voucher to Firestore
+                                db.collection("vouchers").add(voucherData)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(context, "Reward Claimed! Remaining Points: $newPoints", Toast.LENGTH_SHORT).show()
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(context, "Failed to save voucher.", Toast.LENGTH_SHORT).show()
+                                    }
                             }
                             .addOnFailureListener {
                                 Toast.makeText(context, "Failed to claim reward.", Toast.LENGTH_SHORT).show()
@@ -91,8 +112,7 @@ class RewardAdapter(
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(context, "Failed to retrieve user points.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Failed to retrieve user data.", Toast.LENGTH_SHORT).show()
             }
     }
-
 }

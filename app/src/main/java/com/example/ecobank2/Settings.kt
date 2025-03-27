@@ -21,6 +21,8 @@ class Settings : Fragment() {
 
         binding.back.setOnClickListener { navigateToFragment(More()) }
 
+        binding.Vouchers.setOnClickListener { navigateToFragment(Vouchers()) }
+
         binding.LOGOUT.setOnClickListener {
             val intent = Intent(requireContext(), Login::class.java)
             startActivity(intent)
