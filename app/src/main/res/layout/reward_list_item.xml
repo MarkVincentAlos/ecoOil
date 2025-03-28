@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardElevation="6dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp"
     android:background="?android:attr/selectableItemBackground">
 
     <LinearLayout
@@ -26,8 +27,8 @@
             android:paddingBottom="2dp"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/darkgrey"/>
+            android:layout_height="2dp"
+            android:background="@drawable/dashed_line"/>
 
         <!-- Reward Description -->
         <TextView
