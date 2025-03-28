@@ -37,7 +37,7 @@ class TransactionAdapter(private val transactions: List<TransactionData>) :
             holder.pointsTextView.text = "Used ${transaction.pointsEarned} points"
             holder.iconImageView.setImageResource(R.drawable.red)
             holder.pointsTextView.setTextColor(holder.itemView.context.getColor(R.color.red))
-            holder.amountTextView.visibility = View.GONE
+            holder.amountTextView.text = "${transaction.rewardTitle}"
         }
     }
 

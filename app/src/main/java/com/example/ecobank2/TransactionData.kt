@@ -9,6 +9,7 @@ data class TransactionData(
     var amount: Double = 0.0,
     val userId: String = "",
     val type: String = "",
-    var timestamp: Timestamp = Timestamp.now()
+    var timestamp: Timestamp = Timestamp.now(),
+    var rewardTitle: String = ""
 )
 
