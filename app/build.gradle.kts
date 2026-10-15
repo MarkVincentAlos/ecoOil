@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ecobank"
+    namespace = "com.example.ecooil"
     compileSdk = 35
     buildFeatures{
         viewBinding = true
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.ecobank"
+        applicationId = "com.example.ecooil"
         minSdk = 25
         targetSdk = 35
         versionCode = 1

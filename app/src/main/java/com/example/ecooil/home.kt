@@ -1,4 +1,4 @@
-package com.example.ecobank
+package com.example.ecooil
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

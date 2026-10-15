@@ -1,4 +1,4 @@
-package com.example.ecobank
+package com.example.ecooil
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ecobank.databinding.ActivityOnboardBinding
+import com.example.ecooil.databinding.ActivityOnboardBinding
 
 class onboard : AppCompatActivity() {
     private lateinit var binding: ActivityOnboardBinding

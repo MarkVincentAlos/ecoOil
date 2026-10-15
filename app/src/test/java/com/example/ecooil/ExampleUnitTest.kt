@@ -1,4 +1,4 @@
-package com.example.ecobank
+package com.example.ecooil
 
 import org.junit.Test
 

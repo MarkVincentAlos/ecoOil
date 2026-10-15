@@ -1,11 +1,11 @@
-package com.example.ecobank
+package com.example.ecooil
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ecobank.databinding.ActivityDepositBinding
+import com.example.ecooil.databinding.ActivityDepositBinding
 
 class deposit : AppCompatActivity() {
     private lateinit var binding: ActivityDepositBinding
